@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ExternalLink, Layers, Sparkles, Filter, Code2, Cpu } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../data';
@@ -140,118 +140,12 @@ export default function PortfolioSection({ onStartProject, scrollY = 0 }: Portfo
         >
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project) => (
-              <motion.div
-                layout
+              <PortfolioCard
                 key={project.id}
-                initial={{ opacity: 0, scale: 0.9, y: 15 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.9, y: 15 }}
-                whileHover={{ 
-                  y: -10, 
-                  boxShadow: '0 20px 40px -15px rgba(139, 92, 246, 0.15)'
-                }}
-                transition={{ duration: 0.4, ease: 'easeOut' }}
-                className="bg-brand-bg-card border border-brand-border hover:border-purple-500/50 rounded-3xl p-5 sm:p-6 flex flex-col justify-between space-y-5 hover:bg-brand-bg-card-hover transition-all duration-300 group"
-              >
-                {/* Project Mockup Canvas Visualizer (Referencing image asset mock style) */}
-                <div className="relative aspect-video rounded-2xl overflow-hidden border border-brand-border group-hover:border-purple-500/40 transition-all duration-300 select-none flex flex-col justify-between p-4 bg-brand-bg-section/80">
-                  {/* Category Mockup Image Background */}
-                  <img
-                    src={getCategoryMockupImage(project.category)}
-                    alt={`${project.category} Mockup`}
-                    referrerPolicy="no-referrer"
-                    className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-110 transition-all duration-700 ease-out pointer-events-none"
-                  />
-                  {/* Subtle layout protective gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-bg-section/95 via-brand-bg-section/55 to-brand-bg-section/20 group-hover:via-brand-bg-section/45 transition-colors duration-300 pointer-events-none" />
-                  
-                  {/* Dynamic interactive glow that follows general center on hover */}
-                  <div className="absolute -inset-10 bg-gradient-to-tr from-purple-500/0 via-purple-500/10 to-violet-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none blur-xl" />
-
-                  {/* Browser Chrome Visual Header mock */}
-                  <div className="flex items-center justify-between w-full border-b border-brand-border/40 pb-2 z-10 transition-all duration-300 group-hover:border-purple-500/25">
-                    <div className="flex space-x-1.5">
-                      <span className="w-2 h-2 rounded-full bg-red-500/40 group-hover:bg-red-500/60 transition-colors" />
-                      <span className="w-2 h-2 rounded-full bg-amber-500/40 group-hover:bg-amber-500/60 transition-colors" />
-                      <span className="w-2 h-2 rounded-full bg-emerald-500/40 group-hover:bg-emerald-500/60 transition-colors" />
-                    </div>
-                    <span className="text-[8px] font-mono text-brand-text-dim lowercase tracking-wide border border-brand-border/30 group-hover:border-purple-500/20 px-2 py-0.5 rounded-md bg-brand-bg-section/70 backdrop-blur-sm group-hover:bg-purple-950/40 transition-colors">
-                      https://{project.client.toLowerCase().replace(/\s+/g, '')}.com
-                    </span>
-                  </div>
-
-                  <div className="flex flex-col items-center justify-center py-4 z-10 text-center space-y-1 relative">
-                    {/* Floating status tag that appears on hover */}
-                    <div className="absolute -top-4 opacity-0 group-hover:opacity-100 group-hover:-top-3 transition-all duration-300">
-                      <span className="text-[8px] font-mono tracking-widest font-extrabold uppercase text-purple-300 bg-purple-900/60 border border-purple-500/30 px-1.5 py-0.5 rounded-md bg-opacity-70">
-                        active build
-                      </span>
-                    </div>
-
-                    <span className="text-xl font-black text-brand-text-white tracking-tight uppercase group-hover:scale-105 transition-transform duration-300 drop-shadow-md">
-                      {project.client}
-                    </span>
-                    <span className="text-[10px] font-mono text-purple-400 uppercase tracking-widest bg-purple-950/80 border border-purple-900/40 group-hover:border-purple-500/40 px-3 py-1 rounded-full backdrop-blur-sm transition-all duration-300">
-                      {project.category}
-                    </span>
-                  </div>
-
-                  {/* Tech stack items row */}
-                  <div className="flex flex-wrap gap-1.5 z-10 w-full pt-2">
-                    {project.technologies.map((t, index) => (
-                      <motion.span 
-                        key={t} 
-                        whileHover={{ 
-                          scale: 1.05, 
-                          color: '#f8fafc',
-                          borderColor: 'rgba(168, 85, 247, 0.6)',
-                          backgroundColor: 'rgba(88, 28, 135, 0.4)' 
-                        }}
-                        className="text-[8px] font-mono uppercase bg-brand-bg-section/90 border border-brand-border/40 text-brand-text-dim px-2 py-0.5 rounded-md backdrop-blur-sm transition-colors duration-200 cursor-default"
-                      >
-                        {t}
-                      </motion.span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Info and detail section */}
-                <div className="space-y-4 flex-1 flex flex-col justify-between">
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-lg font-bold text-brand-text-white uppercase tracking-tight group-hover:text-purple-300 transition-colors duration-300">
-                        {project.title}
-                      </h3>
-                      <ExternalLink size={14} className="text-brand-text-dim/60 group-hover:text-purple-400 group-hover:rotate-12 transition-all duration-300" />
-                    </div>
-                    <p className="text-xs sm:text-sm text-brand-text-muted leading-relaxed group-hover:text-brand-text-light transition-colors duration-300">
-                      {project.description}
-                    </p>
-                    <div className="pt-2">
-                      <span className="inline-block text-[10px] font-mono text-purple-300 bg-purple-950/30 border border-purple-900/40 px-2.5 py-1 rounded-md group-hover:border-purple-500/30 transition-all duration-300">
-                        <span className="text-brand-text-dim group-hover:text-purple-400 transition-colors mr-1">STACK:</span>
-                        {project.technologies.join(', ')}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Actions Bar inside card component */}
-                  <div className="pt-2">
-                    <motion.button
-                      whileTap={{ scale: 0.98 }}
-                      whileHover={{ 
-                        scale: 1.01,
-                        backgroundColor: 'rgba(147, 51, 234, 0.12)'
-                      }}
-                      onClick={() => onStartProject(`Portfolio Request: ${project.title} (${project.client})`)}
-                      className="w-full py-3 px-4 rounded-xl border border-brand-border text-brand-text-muted hover:text-brand-text-white hover:border-purple-500/50 text-[10px] font-bold tracking-widest uppercase transition-all cursor-pointer bg-transparent"
-                    >
-                      Request Similar Service ↗
-                    </motion.button>
-                  </div>
-                </div>
-
-              </motion.div>
+                project={project}
+                getCategoryMockupImage={getCategoryMockupImage}
+                onStartProject={onStartProject}
+              />
             ))}
           </AnimatePresence>
 
@@ -282,5 +176,166 @@ export default function PortfolioSection({ onStartProject, scrollY = 0 }: Portfo
 
       </div>
     </section>
+  );
+}
+
+// ==========================================
+// PORTFOLIO CARD WITH 3D TILT & PARALLAX HOVER EFFECT
+// ==========================================
+interface PortfolioCardProps {
+  key?: string | number;
+  project: ProjectItem;
+  getCategoryMockupImage: (category: string) => string;
+  onStartProject: (projectTitle: string) => void;
+}
+
+function PortfolioCard({ project, getCategoryMockupImage, onStartProject }: PortfolioCardProps) {
+  const [rotateX, setRotateX] = useState(0);
+  const [rotateY, setRotateY] = useState(0);
+  const [offsetX, setOffsetX] = useState(0);
+  const [offsetY, setOffsetY] = useState(0);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    // Normalized position relative to center of card: range [-0.5, 0.5]
+    const xc = x / rect.width - 0.5;
+    const yc = y / rect.height - 0.5;
+    
+    // 3D tilt angles calculated smoothly (Max 7 degrees tilt for pristine elegance)
+    setRotateX(-yc * 7); 
+    setRotateY(xc * 7);  
+    
+    // Reverse Parallax offsets for background mockup image (Shifts up to 14px to build deep perspective layers)
+    setOffsetX(-xc * 14); 
+    setOffsetY(-yc * 14); 
+  };
+
+  const handleMouseLeave = () => {
+    // Graceful spring reset back to neutral resting state on pointer leave
+    setRotateX(0);
+    setRotateY(0);
+    setOffsetX(0);
+    setOffsetY(0);
+  };
+
+  return (
+    <motion.div
+      layout
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        transformStyle: 'preserve-3d',
+        transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
+      }}
+      transition={{ duration: 0.25, ease: 'easeOut' }}
+      className="bg-brand-bg-card border border-brand-border hover:border-purple-500/50 rounded-3xl p-5 sm:p-6 flex flex-col justify-between space-y-5 hover:bg-brand-bg-card-hover transition-all duration-300 group"
+    >
+      {/* Project Mockup Canvas Visualizer */}
+      <div 
+        style={{ transform: 'translateZ(10px)' }}
+        className="relative aspect-video rounded-2xl overflow-hidden border border-brand-border group-hover:border-purple-500/40 transition-all duration-300 select-none flex flex-col justify-between p-4 bg-brand-bg-section/80"
+      >
+        
+        {/* Category Mockup Image Background with Parallax transformation */}
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src={getCategoryMockupImage(project.category)}
+            alt={`${project.category} Mockup`}
+            referrerPolicy="no-referrer"
+            style={{
+              transform: `scale(1.22) translate(${offsetX}px, ${offsetY}px)`,
+              transition: 'transform 0.12s ease-out, opacity 0.5s ease-out',
+            }}
+            className="absolute inset-0 w-full h-full object-cover opacity-35 group-hover:opacity-65 pointer-events-none"
+          />
+        </div>
+
+        {/* Subtle layout protective gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-bg-section/95 via-brand-bg-section/55 to-brand-bg-section/20 group-hover:via-brand-bg-section/45 transition-colors duration-300 pointer-events-none" />
+        
+        {/* Dynamic interactive glow that follows general center on hover */}
+        <div className="absolute -inset-10 bg-gradient-to-tr from-purple-500/0 via-purple-500/10 to-violet-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none blur-xl" />
+
+        {/* Browser Chrome Visual Header mock */}
+        <div className="flex items-center justify-between w-full border-b border-brand-border/40 pb-2 z-10 transition-all duration-300 group-hover:border-purple-500/25">
+          <div className="flex space-x-1.5">
+            <span className="w-2 h-2 rounded-full bg-red-500/40 group-hover:bg-red-500/60 transition-colors" />
+            <span className="w-2 h-2 rounded-full bg-amber-500/40 group-hover:bg-amber-500/60 transition-colors" />
+            <span className="w-2 h-2 rounded-full bg-emerald-500/40 group-hover:bg-emerald-500/60 transition-colors" />
+          </div>
+          <span className="text-[8px] font-mono text-brand-text-dim lowercase tracking-wide border border-brand-border/30 group-hover:border-purple-500/20 px-2 py-0.5 rounded-md bg-brand-bg-section/70 backdrop-blur-sm group-hover:bg-purple-950/40 transition-colors">
+            https://{project.client.toLowerCase().replace(/\s+/g, '')}.com
+          </span>
+        </div>
+
+        <div className="flex flex-col items-center justify-center py-4 z-10 text-center space-y-1 relative">
+          {/* Floating status tag that appears on hover */}
+          <div className="absolute -top-4 opacity-0 group-hover:opacity-100 group-hover:-top-3 transition-all duration-300">
+            <span className="text-[8px] font-mono tracking-widest font-extrabold uppercase text-purple-300 bg-purple-900/60 border border-purple-500/30 px-1.5 py-0.5 rounded-md bg-opacity-70">
+              active build
+            </span>
+          </div>
+
+          <span className="text-xl font-black text-brand-text-white tracking-tight uppercase group-hover:scale-105 transition-transform duration-300 drop-shadow-md">
+            {project.client}
+          </span>
+          <span className="text-[10px] font-mono text-purple-400 uppercase tracking-widest bg-purple-950/80 border border-purple-900/40 group-hover:border-purple-500/40 px-3 py-1 rounded-full backdrop-blur-sm transition-all duration-300">
+            {project.category}
+          </span>
+        </div>
+
+        {/* Tech stack items row */}
+        <div className="flex flex-wrap gap-1.5 z-10 w-full pt-2">
+          {project.technologies.map((t) => (
+            <span 
+              key={t} 
+              className="text-[8px] font-mono uppercase bg-brand-bg-section/90 border border-brand-border/40 text-brand-text-dim px-2 py-0.5 rounded-md backdrop-blur-sm transition-colors duration-200 cursor-default"
+            >
+              {t}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Info and detail section with Z translation depth enhancement */}
+      <div className="space-y-4 flex-1 flex flex-col justify-between" style={{ transform: 'translateZ(20px)' }}>
+        <div className="space-y-2">
+          <div className="flex items-center justify-between">
+            <h4 className="text-lg font-bold text-brand-text-white uppercase tracking-tight group-hover:text-purple-300 transition-colors duration-300">
+              {project.title}
+            </h4>
+            <ExternalLink size={14} className="text-brand-text-dim/60 group-hover:text-purple-400 group-hover:rotate-12 transition-all duration-300" />
+          </div>
+          <p className="text-xs sm:text-sm text-brand-text-muted leading-relaxed group-hover:text-brand-text-light transition-colors duration-300">
+            {project.description}
+          </p>
+          <div className="pt-2">
+            <span className="inline-block text-[10px] font-mono text-purple-300 bg-purple-950/30 border border-purple-900/40 px-2.5 py-1 rounded-md group-hover:border-purple-500/30 transition-all duration-300">
+              <span className="text-brand-text-dim group-hover:text-purple-400 transition-colors mr-1">STACK:</span>
+              {project.technologies.join(', ')}
+            </span>
+          </div>
+        </div>
+
+        {/* Actions Bar inside card component */}
+        <div className="pt-2">
+          <motion.button
+            whileTap={{ scale: 0.98 }}
+            whileHover={{ 
+              scale: 1.01,
+              backgroundColor: 'rgba(147, 51, 234, 0.12)'
+            }}
+            onClick={() => onStartProject(`Portfolio Request: ${project.title} (${project.client})`)}
+            className="w-full py-3 px-4 rounded-xl border border-brand-border text-brand-text-muted hover:text-brand-text-white hover:border-purple-500/50 text-[10px] font-bold tracking-widest uppercase transition-all cursor-pointer bg-transparent"
+          >
+            Request Similar Service ↗
+          </motion.button>
+        </div>
+      </div>
+    </motion.div>
   );
 }
