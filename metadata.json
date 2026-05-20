@@ -1,0 +1,6 @@
+{
+  "name": "GraceGate Portfolio",
+  "description": "Personal cybersecurity portfolio for Grace Francis (GraceGate), featuring EC-Council CEHv11 credentials, network security, penetration testing, and secure system admin certifications.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

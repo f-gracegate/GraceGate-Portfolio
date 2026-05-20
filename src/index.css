@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+:root {
+  --brand-bg-main: #06040a;
+  --brand-bg-section: #0a0515;
+  --brand-bg-card: rgba(17, 9, 38, 0.25);
+  --brand-bg-card-hover: rgba(21, 12, 48, 0.45);
+  --brand-text-white: #ffffff;
+  --brand-text-light: #e0d7f2;
+  --brand-text-muted: #b8aedb;
+  --brand-text-dim: #a49bbd;
+  --brand-border: rgba(147, 51, 234, 0.3);
+  --brand-border-muted: rgba(147, 51, 234, 0.2);
+  --grid-color: rgba(31, 19, 61, 0.25);
+  --glow-opacity: 0.1;
+  --nav-blur-bg: rgba(10, 5, 21, 0.85);
+  --card-shadow: 0 10px 30px -5px rgba(168, 85, 247, 0.2);
+}
+
+:root.light {
+  --brand-bg-main: #fbf9fd;
+  --brand-bg-section: #f5f2fb;
+  --brand-bg-card: #ffffff;
+  --brand-bg-card-hover: #ede7f8;
+  --brand-text-white: #12042b;
+  --brand-text-light: #1d0741;
+  --brand-text-muted: #4e4070;
+  --brand-text-dim: #6d5f90;
+  --brand-border: rgba(124, 58, 237, 0.18);
+  --brand-border-muted: rgba(124, 58, 237, 0.12);
+  --grid-color: rgba(124, 58, 237, 0.08);
+  --glow-opacity: 0.03;
+  --nav-blur-bg: rgba(245, 242, 251, 0.85);
+  --card-shadow: 0 10px 30px -5px rgba(124, 58, 237, 0.1);
+}
+
+@theme {
+  --font-sans: "Outfit", "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --color-brand-bg-main: var(--brand-bg-main);
+  --color-brand-bg-section: var(--brand-bg-section);
+  --color-brand-bg-card: var(--brand-bg-card);
+  --color-brand-bg-card-hover: var(--brand-bg-card-hover);
+  --color-brand-text-white: var(--brand-text-white);
+  --color-brand-text-light: var(--brand-text-light);
+  --color-brand-text-muted: var(--brand-text-muted);
+  --color-brand-text-dim: var(--brand-text-dim);
+  --color-brand-border: var(--brand-border);
+  --color-brand-border-muted: var(--brand-border-muted);
+}
+
+body {
+  background-color: var(--brand-bg-section);
+  color: var(--brand-text-light);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Custom gorgeous scrollbar styled to match the theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--brand-bg-section);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--brand-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-border-muted);
+}
