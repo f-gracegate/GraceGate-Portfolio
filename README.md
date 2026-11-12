@@ -1,20 +1,63 @@
 <div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+  <img src="public/brand/gracegate-logo.png" alt="GraceGate" width="220" />
+
+  <p><strong>Cybersecurity analyst &amp; digital product builder</strong><br/>
+  Powered by GraceGate Technologies</p>
 </div>
 
-# Run and deploy your AI Studio app
+## Overview
 
-This contains everything you need to run your app locally.
+The GraceGate portfolio site, built with **Next.js (App Router)**, **React 19**, **Tailwind CSS v4** and **Motion** for animation.
 
-View your app in AI Studio: https://ai.studio/apps/8055cb8b-5413-41f6-8c54-9c62e930b210
+Highlights:
 
-## Run Locally
+- Animated preloader, scroll progress bar and cursor-following glow
+- Hero with staggered headline reveal, parallax, orbiting logo mark and a live "terminal"
+- Spotlight + tilt cards, magnetic buttons, animated counters and an infinite tool marquee
+- Filterable project grid with shared-layout transitions
+- Scroll-linked process timeline and an auto-playing, swipeable testimonial carousel
+- Project request modal that saves to Supabase (falls back to `localStorage` when not configured)
+- Respects `prefers-reduced-motion`
 
-**Prerequisites:**  Node.js
+## Getting started
 
+**Prerequisites:** Node.js 20+
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+```bash
+npm install
+npm run dev
+```
+
+Open http://localhost:3000.
+
+### Environment
+
+Copy `.env.example` to `.env.local` and fill in your Supabase project to store service requests:
+
+```
+NEXT_PUBLIC_SUPABASE_URL=...
+NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+```
+
+Optionally set `NEXT_PUBLIC_SITE_URL` to your production URL for correct social preview links.
+
+## Scripts
+
+| Command         | Description              |
+| --------------- | ------------------------ |
+| `npm run dev`   | Start the dev server     |
+| `npm run build` | Production build         |
+| `npm start`     | Serve the production build |
+| `npm run lint`  | Type-check the project   |
+
+## Structure
+
+```
+app/            Layout, global styles, page and favicon
+components/     Page sections and shared UI/motion primitives
+lib/            Content (data.ts), types and Supabase client
+public/brand/   GraceGate and GraceGate Technologies logos
+public/projects Project imagery
+```
+
+Site content (services, projects, testimonials, contact details) lives in `lib/data.ts`.
