@@ -1,9 +1,34 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import { ServiceItem, MetricItem, TestimonialItem, WhyChooseItem, ProjectItem } from './types';
+
+export const CONTACT = {
+  email: 'gracefrancis0895@gmail.com',
+  phone: '+233 55 405 7773',
+  whatsapp: 'https://wa.me/233554057773',
+  location: 'Accra, Ghana',
+};
+
+export const NAV_LINKS = [
+  { id: 'about', label: 'About' },
+  { id: 'services', label: 'Services' },
+  { id: 'work', label: 'Work' },
+  { id: 'process', label: 'Process' },
+  { id: 'testimonials', label: 'Reviews' },
+];
+
+export const PROCESS_STEPS = [
+  { step: '01', title: 'Discover', description: 'Scope the engagement, map assets and agree on rules of engagement, goals and success criteria.' },
+  { step: '02', title: 'Assess', description: 'Reconnaissance, scanning and hands-on testing against real-world attack paths and OWASP benchmarks.' },
+  { step: '03', title: 'Build & Harden', description: 'Ship secure products or remediate findings: configuration hardening, secure code and access control.' },
+  { step: '04', title: 'Report & Support', description: 'Clear, prioritised reporting with CVSS scoring, remediation guides and follow-up verification.' },
+];
+
+export const STATS = [
+  { value: 10, suffix: '+', label: 'Projects delivered' },
+  { value: 6, suffix: '', label: 'Core service lines' },
+  { value: 24, suffix: 'h', label: 'Response time' },
+  { value: 2023, suffix: '', label: 'KNUST CS graduate' },
+];
+
 
 export const HERO_DATA = {
   name: 'GraceGate',
@@ -89,7 +114,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     ]
   },
   {
-    id: 'sec-mon- incident',
+    id: 'sec-mon-incident',
     category: 'digital-marketing',
     title: 'Log Analysis & Incident Identification',
     iconName: 'Search',
@@ -220,7 +245,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
     title: 'ALX AWS Foundational IAM Audit',
     client: 'AWS Foundational Program',
     category: 'Infrastructure Security',
-    technologies: ['AWS Inc.', 'IAM Rules', 'Bash Scripting'],
+    technologies: ['AWS', 'IAM Rules', 'Bash Scripting'],
     description: 'Built minimal secure cloud baseline architectures, configured permission bounds via IAM least-privilege protocols, and hardened cloud access groups securely.',
     imageColor: 'from-orange-950 via-amber-950 to-red-950'
   },
@@ -239,7 +264,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
     client: 'Apex SecurePay Solutions',
     category: 'Web/Mobile Apps',
     technologies: ['Flutter', 'React', 'AWS', 'IAM Rules'],
-    description: 'Designed and engineered a cross-platform secure mobile wallet application featuring biochemical authentication, full session state protections, and customized secure API gateways.',
+    description: 'Designed and engineered a cross-platform secure mobile wallet application featuring biometric authentication, full session state protections, and customized secure API gateways.',
     imageColor: 'from-blue-950 via-purple-950 to-indigo-950'
   },
   {
