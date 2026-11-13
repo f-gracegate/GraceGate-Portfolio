@@ -141,7 +141,7 @@ function RippleCard() {
           <p className="mt-1 font-mono text-xs text-white/45">Next.js · React · Figma</p>
         </div>
         <p className="col-span-2 self-end font-display text-lg font-semibold text-white">
-          Location: <span className="font-sans text-sm font-normal text-white/50">Kumasi, Ghana · Remote</span>
+          Location: <span className="font-sans text-sm font-normal text-white/50">Accra, Ghana · Remote</span>
         </p>
       </div>
     </div>

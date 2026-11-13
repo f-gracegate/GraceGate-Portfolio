@@ -23,7 +23,7 @@ export const CONTACT = {
   /** tel: link used by every call button */
   phoneHref: 'tel:+233554057773',
   whatsapp: 'https://wa.me/233554057773',
-  location: 'Kumasi, Ghana',
+  location: 'Accra, Ghana',
   timezone: 'Remote (GMT)',
 };
 
@@ -60,7 +60,7 @@ export const HERO_DATA = {
 export const METRICS_DATA: MetricItem[] = [
   { value: 'CEHv11', label: 'Certified ethical hacker' },
   { value: 'KNUST', label: 'BSc Computer Science' },
-  { value: 'GMT', label: 'Remote · Kumasi, Ghana' },
+  { value: 'GMT', label: 'Remote · Accra, Ghana' },
 ];
 
 export const TRUSTED_BRANDS = [
@@ -234,7 +234,7 @@ export const WHY_CHOOSE_DATA: WhyChooseItem[] = [
   {
     iconName: 'CheckCircle',
     title: 'Reliable and remote-ready',
-    description: 'Fast turnaround and comfortable working remotely across time zones from Kumasi, Ghana (GMT).',
+    description: 'Fast turnaround and comfortable working remotely across time zones from Accra, Ghana (GMT).',
   },
 ];
 

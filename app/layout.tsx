@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     'CEH',
     'vulnerability assessment',
     'web development',
-    'Kumasi',
+    'Accra',
     'Ghana',
   ],
   openGraph: {
