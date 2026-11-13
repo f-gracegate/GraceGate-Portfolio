@@ -15,25 +15,31 @@ const jetbrains = JetBrains_Mono({ subsets: ['latin'], variable: '--font-jetbrai
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: {
-    default: 'GraceGate — Cybersecurity Analyst & Digital Product Builder',
+    default: 'GraceGate — Francis Amoako · Design, Development, Motion & Cybersecurity',
     template: '%s · GraceGate',
   },
   description:
-    'GraceGate is a CEHv11-certified cybersecurity analyst and KNUST Computer Science graduate offering penetration testing, vulnerability assessment, secure web & mobile apps, and UI/UX design.',
+    'GraceGate is the studio of Francis Amoako, a KNUST Computer Science graduate and Certified Ethical Hacker offering UI/UX design, websites, mobile apps, flyers, branding, motion graphics and cybersecurity.',
   keywords: [
     'GraceGate',
+    'Francis Amoako',
+    'UI/UX design',
+    'graphic design',
+    'flyers',
+    'motion graphics',
     'cybersecurity',
     'penetration testing',
     'ethical hacker',
     'CEH',
     'vulnerability assessment',
     'web development',
+    'Kumasi',
     'Ghana',
   ],
   openGraph: {
-    title: 'GraceGate — Cybersecurity Analyst & Digital Product Builder',
+    title: 'GraceGate — Francis Amoako · Design, Development, Motion & Cybersecurity',
     description:
-      'Penetration testing, vulnerability assessment, secure web & mobile apps and UI/UX design. Powered by GraceGate Technologies.',
+      'I design it, build it, animate it and secure it. UI/UX, websites, mobile apps, flyers, motion graphics and cybersecurity. Powered by GraceGate Technologies.',
     images: [{ url: '/brand/gracegate-logo.png', width: 1066, height: 679, alt: 'GraceGate' }],
     type: 'website',
   },

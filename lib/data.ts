@@ -10,182 +10,232 @@ import {
   type PortfolioItem,
 } from './types';
 
+export const PROFILE = {
+  name: 'Francis Amoako',
+  brand: 'GraceGate',
+  role: 'UI/UX & Graphic Designer · Web & Mobile Developer · Motion Designer · Cybersecurity (CEH)',
+  availability: 'Open to remote full-time, contract & freelance',
+};
+
 export const CONTACT = {
   email: 'gracefrancis0895@gmail.com',
   phone: '+233 55 405 7773',
   /** tel: link used by every call button */
   phoneHref: 'tel:+233554057773',
   whatsapp: 'https://wa.me/233554057773',
-  location: 'Accra, Ghana',
+  location: 'Kumasi, Ghana',
+  timezone: 'Remote (GMT)',
 };
 
 export const NAV_LINKS = [
   { id: 'about', label: 'About' },
   { id: 'services', label: 'Services' },
   { id: 'work', label: 'Work' },
+  { id: 'experience', label: 'Experience' },
   { id: 'process', label: 'Process' },
-  { id: 'testimonials', label: 'Reviews' },
 ];
 
 export const PROCESS_STEPS = [
-  { step: '01', title: 'Discover', description: 'Scope the engagement, map assets and agree on rules of engagement, goals and success criteria.' },
-  { step: '02', title: 'Assess', description: 'Reconnaissance, scanning and hands-on testing against real-world attack paths and OWASP benchmarks.' },
-  { step: '03', title: 'Build & Harden', description: 'Ship secure products or remediate findings: configuration hardening, secure code and access control.' },
-  { step: '04', title: 'Report & Support', description: 'Clear, prioritised reporting with CVSS scoring, remediation guides and follow-up verification.' },
+  { step: '01', title: 'Discover', description: 'We agree on goals, audience, scope and timeline, and I map out exactly what will be delivered.' },
+  { step: '02', title: 'Design', description: 'User flows, wireframes and high-fidelity visuals, or flyer and brand concepts, refined with your feedback.' },
+  { step: '03', title: 'Build & Secure', description: 'Responsive websites, apps and motion assets, built with security in from day one and tested before launch.' },
+  { step: '04', title: 'Launch & Support', description: 'Hand-over of final files or deployment of your product, with follow-up support, fixes and security checks.' },
 ];
 
 export const STATS = [
-  { value: 16, suffix: '', label: 'Portfolio pieces' },
-  { value: 6, suffix: '', label: 'Core service lines' },
-  { value: 5, suffix: '', label: 'Disciplines' },
-  { value: 24, suffix: 'h', label: 'Response time' },
+  { value: 0, suffix: '', label: 'Portfolio pieces' }, // filled in from PORTFOLIO_ITEMS
+  { value: 6, suffix: '', label: 'Services' },
+  { value: 3, suffix: '', label: 'Certifications' },
+  { value: 4, suffix: '+', label: 'Years in tech' },
 ];
-
 
 export const HERO_DATA = {
   name: 'GraceGate',
   badge: 'Certified Ethical Hacker (CEHv11)',
-  tagline: 'Cybersecurity Analyst & CS Specialist',
-  description: 'Certified ethical hacker and KNUST computer science graduate. I test and harden systems, build secure websites and apps, and design the brands that represent them — all under one gate.',
-  ribbon: 'Security Assessment • Penetration Testing • SOC Analyst Support • KNUST Alumni 2023'
+  tagline: 'Designer · Developer · Motion Designer · Ethical Hacker',
+  description:
+    'I’m Francis Amoako, a KNUST Computer Science graduate and Certified Ethical Hacker. Through GraceGate I turn ideas into clean interfaces, fast websites, mobile apps and scroll-stopping visuals, with security built in from day one.',
 };
 
 export const METRICS_DATA: MetricItem[] = [
-  { value: 'CEHv11', label: 'CERTIFIED ETHICAL HACKER' },
-  { value: 'KNUST', label: 'BSc COMPUTER SCIENCE' },
-  { value: '2023', label: 'GRADUATE YEAR' }
+  { value: 'CEHv11', label: 'Certified ethical hacker' },
+  { value: 'KNUST', label: 'BSc Computer Science' },
+  { value: 'GMT', label: 'Remote · Kumasi, Ghana' },
 ];
 
 export const TRUSTED_BRANDS = [
+  'Figma',
+  'Next.js',
+  'React',
+  'JavaScript',
+  'MongoDB',
+  'GitHub',
   'Kali Linux',
+  'Burp Suite',
   'Wireshark',
   'Nmap',
-  'Burp Suite',
-  'AWS Cloud',
-  'Python Security',
-  'EC-Council',
-  'GitHub',
-  'Linux Bash'
+  'Python',
+  'AWS',
 ];
 
+/** The six services, in the order they appear on the CV ("What I deliver"). */
 export const SERVICES_DATA: ServiceItem[] = [
   {
-    id: 'pentest-eth',
-    category: 'web-design', // Keeping Category 'web-design' mapped internally or flexible
-    title: 'Penetration Testing & Ethical Hacking',
-    iconName: 'ShieldAlert',
-    description: 'Systematic reconnaissance and verification of logical security controls across web applications and enterprise network perimeters to map exploits.',
+    id: 'ui-ux',
+    title: 'UI/UX Design',
+    iconName: 'PenTool',
+    description: 'User flows, wireframes and high-fidelity prototypes for web and mobile, designed around how real people use your product.',
     features: [
-      'OWASP Top 10 vulnerability assessments',
-      'Python-based custom exploit & decrypter scripts',
-      'Kali Linux suite automated auditing',
-      'Secure web system remediation workflows',
-      'Detailed vulnerability identification telemetry'
-    ]
+      'User flows and information architecture',
+      'Wireframes and interactive Figma prototypes',
+      'High-fidelity interfaces for web and mobile',
+      'Design systems and reusable components',
+    ],
   },
   {
-    id: 'vuln-assess',
-    category: 'web-design',
-    title: 'Vulnerability Assessment & Threat Analysis',
-    iconName: 'Activity',
-    description: 'Scanning, prioritizing, and documenting technical risk indexes to safeguard critical applications against immediate attack vectors.',
-    features: [
-      'Asset discovery & topology intelligence',
-      'CISA advisory & Cyber Defense risk mapping',
-      'Remediation guide formulation for dev teams',
-      'Automated and manual vulnerability scoring',
-      'Security posture gap analysis briefs'
-    ]
-  },
-  {
-    id: 'web-app-creation',
-    category: 'web-design',
-    title: 'Web & Mobile App Creation',
+    id: 'websites',
+    title: 'Website Development',
     iconName: 'Globe',
-    description: 'Building ultra-fast, robust, and highly secure custom websites and responsive mobile applications with seamless user flows.',
+    description: 'Responsive business sites, landing pages and e-commerce stores that load fast, look sharp and are secure from launch.',
     features: [
-      'Custom React, Next.js, and Vite web system builds',
-      'Cross-platform mobile apps (Android & iOS) via Flutter',
-      'Secure authentication, OAuth integration, and API engineering',
-      'Clean database schemas and state synchronization',
-      'Performance-tuned frontend with elegant micro-interactions'
-    ]
+      'Business websites and landing pages',
+      'E-commerce stores (Next.js / React)',
+      'Responsive on every screen size',
+      'Security-hardened forms, auth and hosting',
+    ],
   },
   {
-    id: 'net-infra-sec',
-    category: 'digital-marketing', // Mapping under second tab or similar
-    title: 'Enterprise Network & Infrastructure Security',
-    iconName: 'Cpu',
-    description: 'Configuring and monitoring routers, switches, and firewalls to ensure high-uptime availability and defense-in-depth routing protection.',
+    id: 'mobile-apps',
+    title: 'Mobile App Development',
+    iconName: 'Smartphone',
+    description: 'App interfaces and builds focused on smooth, intuitive experiences, from first sketch to a working product.',
     features: [
-      'Enterprise Router & Switch policy audits',
-      'TCP/IP, DNS, and DHCP configuration hardening',
-      'Network topology tracing and documentation',
-      'Firewall rule management & access-lists',
-      'Intrusion posture assessment support'
-    ]
+      'App UI design and prototyping',
+      'Clean, intuitive navigation and flows',
+      'API and database integration (MongoDB)',
+      'Secure authentication and data handling',
+    ],
   },
   {
-    id: 'sec-mon-incident',
-    category: 'digital-marketing',
-    title: 'Log Analysis & Incident Identification',
-    iconName: 'Search',
-    description: 'Monitoring network traffic anomalies using active analyzers to pinpoint zero-day exploits and abnormal transmission trends early.',
-    features: [
-      'Real-time Wireshark packet capture analysis',
-      'Log generation, normalization, & monitoring',
-      'Incident prioritization based on CVSS metrics',
-      'Host-based and network intrusion scans',
-      'Systematic log audit reports'
-    ]
-  },
-  {
-    id: 'ui-ux-flyers',
-    category: 'digital-marketing',
-    title: 'Graphic Design, Branding & Motion',
+    id: 'graphic-design',
+    title: 'Graphic Design & Branding',
     iconName: 'Palette',
-    description: 'Flyers, logos, complete brand identities and animated logo reveals that make a business instantly recognisable, in print and on screen.',
+    description: 'Flyers, posters, social media creatives, logos and brand assets that make a business instantly recognisable.',
     features: [
-      'Campaign, event and menu flyers (print & social-ready)',
-      'Logo design and full brand identity systems',
-      'Motion graphics and animated logo reveals',
-      'UI/UX design: Figma wireframes and prototypes',
-      'Multi-format templates and brand kits'
-    ]
-  }
+      'Event, menu and campaign flyers & posters',
+      'Social media creatives',
+      'Logo design and brand identity systems',
+      'Print- and digital-ready files',
+    ],
+  },
+  {
+    id: 'motion',
+    title: 'Motion Graphics',
+    iconName: 'Clapperboard',
+    description: 'Animated promos, social videos, logo animations and ad creatives that stop the scroll.',
+    features: [
+      'Logo animations and reveals',
+      'Animated promos and ad creatives',
+      'Short-form social videos',
+      'Formats sized for every platform',
+    ],
+  },
+  {
+    id: 'cybersecurity',
+    title: 'Cybersecurity',
+    iconName: 'ShieldCheck',
+    description: 'Penetration testing, vulnerability assessments and security hardening to find weaknesses before attackers do.',
+    features: [
+      'Web application penetration testing',
+      'Vulnerability assessment & remediation guidance',
+      'Network security and monitoring',
+      'Log analysis and security hardening',
+    ],
+  },
+];
+
+export const EXPERIENCE = [
+  {
+    role: 'Freelance Designer & Developer',
+    org: 'GraceGate · Self-employed',
+    period: 'Independent · Remote',
+    points: [
+      'Design flyers, posters, social media graphics and motion graphics for businesses and events.',
+      'Design and build responsive websites and mobile app interfaces, from UI/UX concept to launch.',
+      'Building a mobile-responsive e-commerce website (Next.js) for GraceGate Store, an electronics accessories retailer.',
+    ],
+  },
+  {
+    role: 'Cybersecurity & Software Support (National Service)',
+    org: 'CEQA Foods and Beverages Ghana Ltd. (Pizzaman–Chickenman)',
+    period: '2023 – Present',
+    points: [
+      'Supported penetration testing and vulnerability identification across internal systems.',
+      'Secured web applications through testing and remediation support.',
+      'Contributed to software development and web system maintenance with security in mind.',
+      'Worked with IT teams to improve reliability and reduce exposure to common attack vectors.',
+    ],
+  },
+  {
+    role: 'Networking Intern',
+    org: 'University Information Technology Services (UITS), KNUST',
+    period: '2022 – 2023',
+    points: [
+      'Configured and maintained enterprise routers, switches and firewalls.',
+      'Monitored network traffic to detect anomalies and potential vulnerabilities.',
+      'Documented network configurations, security procedures and troubleshooting guides.',
+    ],
+  },
+];
+
+export const CERTIFICATIONS = [
+  { title: 'Certified Ethical Hacker (CEHv11)', issuer: 'EC-Council', year: '2022', detail: 'ID ECC6927514038' },
+  { title: 'Cybersecurity and Mobility', issuer: 'Kennesaw State University (Coursera)', year: '2020' },
+  { title: 'AWS Cloud Computing', issuer: 'ALX Africa' },
+];
+
+export const EDUCATION = {
+  degree: 'BSc Computer Science',
+  school: 'Kwame Nkrumah University of Science and Technology (KNUST)',
+  year: '2023',
+};
+
+export const ACTIVITIES = [
+  'SCISA DigiTech Festival – Google Masterclass (2021)',
+  'Code Afrique Program – Computing & Science Track (2019)',
 ];
 
 export const WHY_CHOOSE_DATA: WhyChooseItem[] = [
   {
+    iconName: 'Layers',
+    title: 'Design, build and secure in one place',
+    description: 'One person takes your idea from concept to interface to launch, so nothing gets lost between a designer, a developer and a security consultant.',
+  },
+  {
     iconName: 'Shield',
-    title: 'Certified Competence (CEHv11)',
-    description: 'Holding professional Ethical Hacker certification issued by the EC-Council, ensuring an in-depth offensive toolkit.'
+    title: 'Certified Ethical Hacker (CEHv11)',
+    description: 'EC-Council certified since 2022. The products I build are not just good-looking, but robust and safe.',
   },
   {
     iconName: 'Cpu',
-    title: 'KNUST Academic Foundations',
-    description: 'Theoretical and practical background with a BSc of Computer Science degree from Ghana’s prestigious KNUST.'
+    title: 'KNUST Computer Science',
+    description: 'A BSc in Computer Science from KNUST, backed by hands-on networking and security work at UITS and in national service.',
   },
   {
     iconName: 'Activity',
-    title: 'Offensive & Defensive Balance',
-    description: 'Skillful in both offensive vulnerability assessments and defensive infrastructure policy building, minimizing blind spots.'
+    title: 'Scroll-stopping visuals',
+    description: 'Flyers, brand identities and motion graphics designed to grab attention and make a business instantly recognisable.',
   },
   {
     iconName: 'Code',
-    title: 'Python & Bash Automation',
-    description: 'Leveraging custom administrative tools and socket scripts to automate repetitive system scans and data lookups.'
+    title: 'Modern, responsive builds',
+    description: 'Fast websites and app interfaces in Next.js and React that work beautifully on every screen size.',
   },
   {
     iconName: 'CheckCircle',
-    title: 'Actionable Threat Mitigation',
-    description: 'Not just listing abstract alerts, but drafting precise guides to help developer teams fix coding or network weaknesses.'
+    title: 'Reliable and remote-ready',
+    description: 'Fast turnaround and comfortable working remotely across time zones from Kumasi, Ghana (GMT).',
   },
-  {
-    iconName: 'Layers',
-    title: 'Multi-Ops Environment Exposure',
-    description: 'Proficient in setting up secure environments on Linux (Ubuntu, Kali Linux), Windows Server, and AWS Cloud foundations.'
-  }
 ];
 
 export const TESTIMONIALS_DATA: TestimonialItem[] = [
@@ -215,97 +265,86 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
   }
 ];
 
+/** Development and security projects (design work lives in DESIGN_DATA). */
 export const PORTFOLIO_DATA: ProjectItem[] = [
   {
-    id: 'p1',
-    title: 'CISA Advisory Alignment Sandbox',
-    client: 'Cyber Def Unit Simulations',
-    category: 'Defensive Security',
-    technologies: ['Nmap', 'CISA Advisories', 'Wireshark'],
-    description: 'Conducted cybersecurity threat analysis simulations aligned with typical SOC team workflows. Outlined specific threat levels, scanned vulnerabilities, and documented defensive mitigations.',
-    imageColor: 'from-slate-800 via-indigo-950 to-blue-950'
+    id: 'w1',
+    title: 'GraceGate Store — E-commerce Website',
+    client: 'GraceGate Store',
+    category: 'Websites & Apps',
+    tag: 'E-commerce · In progress',
+    description: 'A mobile-responsive e-commerce website for GraceGate Store, an electronics accessories retailer, built with Next.js from UI/UX concept through to launch.',
+    technologies: ['Next.js', 'React', 'Responsive Design'],
+    src: '/projects/gracegate-store-website.webp',
+    width: 1200,
+    height: 900,
+    fit: 'cover',
   },
   {
-    id: 'p2',
+    id: 'w2',
+    title: 'GraceGate Portfolio Website',
+    client: 'GraceGate',
+    category: 'Websites & Apps',
+    tag: 'Website',
+    description: 'This site: a Next.js portfolio with scroll-driven 3D animation, a filterable portfolio, motion work and a secure project request form.',
+    technologies: ['Next.js', 'React', 'Tailwind CSS', 'Motion'],
+    src: '/projects/gracegate-portfolio-site.webp',
+    width: 1440,
+    height: 900,
+    fit: 'cover',
+  },
+  {
+    id: 's1',
+    title: 'Web Application Security Testing & Remediation',
+    client: 'CEQA Foods and Beverages Ghana Ltd.',
+    category: 'Cybersecurity',
+    tag: 'Penetration Testing',
+    description: 'National service work supporting penetration testing and vulnerability identification across internal systems, and securing web applications through testing and remediation support.',
+    technologies: ['Burp Suite', 'Nmap', 'Kali Linux'],
+    src: '/projects/offensive-security.png',
+    width: 1200,
+    height: 896,
+    fit: 'cover',
+  },
+  {
+    id: 's2',
+    title: 'Enterprise Network Configuration & Monitoring',
+    client: 'UITS, KNUST',
+    category: 'Cybersecurity',
+    tag: 'Network Security',
+    description: 'Configured and maintained enterprise routers, switches and firewalls, monitored traffic for anomalies and documented configurations, security procedures and troubleshooting guides.',
+    technologies: ['TCP/IP', 'DNS', 'DHCP', 'Wireshark'],
+    src: '/projects/infra-security.png',
+    width: 1200,
+    height: 896,
+    fit: 'cover',
+  },
+  {
+    id: 's3',
+    title: 'Threat-Analysis Simulations',
+    client: 'Cyber Defense Unit workflows',
+    category: 'Cybersecurity',
+    tag: 'Defensive Security',
+    description: 'Ran cybersecurity threat-analysis simulations aligned with Cyber Defense Unit workflows and CISA advisories, and wrote clear remediation guidance for reported vulnerabilities.',
+    technologies: ['CISA Advisories', 'Wireshark', 'Log Analysis'],
+    src: '/projects/defensive-security.png',
+    width: 1200,
+    height: 896,
+    fit: 'cover',
+  },
+  {
+    id: 's4',
     title: 'Ethical Brute-Force Decryption Script',
-    client: 'KNUST Cryptography Laboratory',
-    category: 'Offensive Security',
+    client: 'KNUST · Academic project',
+    category: 'Cybersecurity',
+    tag: 'Python Security',
+    description: 'A Python security script demonstrating ethical brute-force decryption concepts, showing why strong, high-entropy passwords matter.',
     technologies: ['Python', 'Bash', 'Git'],
-    description: 'Developed a terminal security script demonstrating cryptographic decoding routines, simulating credential brute-forcing to showcase the importance of complex password entropy.',
-    imageColor: 'from-teal-950 via-emerald-950 to-emerald-800'
+    src: '/projects/python-brute-force-script.webp',
+    width: 1200,
+    height: 896,
+    fit: 'cover',
   },
-  {
-    id: 'p3',
-    title: 'Web Application Vulnerability Review',
-    client: 'Enterprise PenTesting Audit',
-    category: 'Offensive Security',
-    technologies: ['Burp Suite', 'Nmap', 'Kali Linux Tooling'],
-    description: 'Discovered web app logical flaws and configuration weaknesses. Provided full remediation recommendations to secure web systems and prevent database and API exploitation.',
-    imageColor: 'from-purple-950 via-rose-950 to-zinc-900'
-  },
-  {
-    id: 'p4',
-    title: 'Router & Firewall Configuration Map',
-    client: 'Infrastructure Lab Series',
-    category: 'Infrastructure Security',
-    technologies: ['TCP/IP', 'Firewalls', 'Network Documentation'],
-    description: 'Assisted in configuring and validating secure networking setups (routers, switches, firewalls) and crafted step-by-step documentation for institutional IT standard operations.',
-    imageColor: 'from-blue-900 via-slate-900 to-amber-950'
-  },
-  {
-    id: 'p5',
-    title: 'ALX AWS Foundational IAM Audit',
-    client: 'AWS Foundational Program',
-    category: 'Infrastructure Security',
-    technologies: ['AWS', 'IAM Rules', 'Bash Scripting'],
-    description: 'Built minimal secure cloud baseline architectures, configured permission bounds via IAM least-privilege protocols, and hardened cloud access groups securely.',
-    imageColor: 'from-orange-950 via-amber-950 to-red-950'
-  },
-  {
-    id: 'p6',
-    title: 'Hardened Linux Lab Server Setup',
-    client: 'Lab Admin Series',
-    category: 'Infrastructure Security',
-    technologies: ['Linux (Ubuntu)', 'SSH Keys', 'MongoDB Audit'],
-    description: 'Successfully deployed and hardened a localized database & web server, implementing custom iptables rules, strict SSH keys login constraints, and limited guest privileges.',
-    imageColor: 'from-cyan-950 via-slate-950 to-teal-950'
-  },
-  {
-    id: 'p7',
-    title: 'Secure FinTech Mobile Wallet App',
-    client: 'Apex SecurePay Solutions',
-    category: 'Web/Mobile Apps',
-    technologies: ['Flutter', 'React', 'AWS', 'IAM Rules'],
-    description: 'Designed and engineered a cross-platform secure mobile wallet application featuring biometric authentication, full session state protections, and customized secure API gateways.',
-    imageColor: 'from-blue-950 via-purple-950 to-indigo-950'
-  },
-  {
-    id: 'p8',
-    title: 'Corporate Web System & Custom CMS',
-    client: 'KNUST Tech Incubator Hub',
-    category: 'Web/Mobile Apps',
-    technologies: ['React', 'Next.js', 'Linux', 'Git'],
-    description: 'Engineered a highly responsive, high-performance web platform and customized secure workspace server, executing fully responsive UI layouts built on top of robust authentication layers.',
-    imageColor: 'from-indigo-950 via-slate-900 to-emerald-950'
-  },
-  {
-    id: 'p9',
-    title: 'Cybersecurity Summit Flyer & Assets',
-    client: 'Annual Ghana Ethical Hacking Conference',
-    category: 'UX/UI & Flyers',
-    technologies: ['Figma', 'Photoshop', 'Flyers', 'Branding'],
-    description: 'Crafted the entire high-fidelity user experience interactive layout and striking promotional flyers/marketing posters to direct public ticketing, attracting over 1,200+ delegates.',
-    imageColor: 'from-orange-950 via-rose-950 to-purple-950'
-  },
-  {
-    id: 'p10',
-    title: 'SaaS Dashboard Interface & Flyers',
-    client: 'SentryGuard Analytics Platform',
-    category: 'UX/UI & Flyers',
-    technologies: ['Figma', 'Flyers', 'Branding', 'React'],
-    description: 'Designed the complete responsive system interface and promotional media assets/flyers to optimize SaaS onboarding, achieving a structured flow that reduced conversion drop-offs.',
-    imageColor: 'from-teal-950 via-neutral-900 to-indigo-950'
-  }
 ];
 
 export const DESIGN_DATA: DesignItem[] = [
@@ -390,19 +429,6 @@ const DESIGN_META: Record<string, { category: PortfolioCategory; tag: string }> 
   d6: { category: 'Motion Graphics', tag: 'Logo Animation' },
 };
 
-const PROJECT_META: Record<string, { category: PortfolioCategory; tag: string; src: string }> = {
-  p1: { category: 'Cybersecurity', tag: 'Defensive Security', src: '/projects/defensive-security.png' },
-  p2: { category: 'Cybersecurity', tag: 'Offensive Security', src: '/projects/offensive-security.png' },
-  p3: { category: 'Cybersecurity', tag: 'Offensive Security', src: '/projects/offensive-security.png' },
-  p4: { category: 'Cybersecurity', tag: 'Infrastructure Security', src: '/projects/infra-security.png' },
-  p5: { category: 'Cybersecurity', tag: 'Cloud Security', src: '/projects/infra-security.png' },
-  p6: { category: 'Cybersecurity', tag: 'Infrastructure Security', src: '/projects/infra-security.png' },
-  p7: { category: 'Websites & Apps', tag: 'Mobile App', src: '/projects/web-mobile-apps.png' },
-  p8: { category: 'Websites & Apps', tag: 'Web Platform', src: '/projects/web-mobile-apps.png' },
-  p9: { category: 'Flyers', tag: 'Event Flyer', src: '/projects/ux-ui-flyers.png' },
-  p10: { category: 'Websites & Apps', tag: 'UI/UX Design', src: '/projects/ux-ui-flyers.png' },
-};
-
 const ALL_ITEMS: PortfolioItem[] = [
   ...DESIGN_DATA.map((d) => ({
     id: d.id,
@@ -416,17 +442,7 @@ const ALL_ITEMS: PortfolioItem[] = [
     fit: d.fit,
     ...DESIGN_META[d.id],
   })),
-  ...PORTFOLIO_DATA.map((p) => ({
-    id: p.id,
-    title: p.title,
-    client: p.client,
-    description: p.description,
-    technologies: p.technologies,
-    width: 1200,
-    height: 896,
-    fit: 'cover' as const,
-    ...PROJECT_META[p.id],
-  })),
+  ...PORTFOLIO_DATA,
 ];
 
 /** Sorted in category order: Flyers, Logos & Branding, Websites & Apps, Motion Graphics, Cybersecurity. */
@@ -436,9 +452,9 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = PORTFOLIO_CATEGORIES.flatMap((c)
 
 /** Which request-form service each category maps to. */
 export const CATEGORY_SERVICE: Record<PortfolioCategory, string> = {
-  Flyers: 'Graphic Design, Branding & Motion',
-  'Logos & Branding': 'Graphic Design, Branding & Motion',
-  'Websites & Apps': 'Web & Mobile App Creation',
-  'Motion Graphics': 'Graphic Design, Branding & Motion',
-  Cybersecurity: 'Penetration Testing & Ethical Hacking',
+  Flyers: 'Graphic Design & Branding',
+  'Logos & Branding': 'Graphic Design & Branding',
+  'Websites & Apps': 'Website Development',
+  'Motion Graphics': 'Motion Graphics',
+  Cybersecurity: 'Cybersecurity',
 };

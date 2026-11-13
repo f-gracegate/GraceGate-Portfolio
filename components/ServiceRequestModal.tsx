@@ -153,7 +153,7 @@ export default function ServiceRequestModal({ isOpen, onClose, preselectedServic
                       Tell me about your project
                     </h3>
                     <p className="mt-2 text-sm text-white/45">
-                      I reply to every request within 24 hours. Prefer to talk?{' '}
+                      I reply to every request quickly. Prefer to talk?{' '}
                       <a href={CONTACT.phoneHref} className="font-medium text-brand-300 underline-offset-4 hover:underline">
                         Call {CONTACT.phone}
                       </a>
@@ -252,7 +252,7 @@ export default function ServiceRequestModal({ isOpen, onClose, preselectedServic
                   </motion.div>
                   <h3 className="mt-6 font-display text-2xl font-semibold text-white">Request received</h3>
                   <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-white/55">
-                    Thanks for reaching out. I&apos;ll review the details and get back to you within 24 hours.
+                    Thanks for reaching out. I&apos;ll review the details and get back to you shortly.
                   </p>
                   <button
                     onClick={close}

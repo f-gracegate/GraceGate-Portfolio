@@ -9,7 +9,7 @@ import Services from '@/components/Services';
 import Work from '@/components/Work';
 import Process from '@/components/Process';
 import WhyChoose from '@/components/WhyChoose';
-import Testimonials from '@/components/Testimonials';
+import Experience from '@/components/Experience';
 import CTA from '@/components/CTA';
 import DeckShowcase from '@/components/showcase/DeckShowcase';
 import FactCards from '@/components/showcase/FactCards';
@@ -33,9 +33,9 @@ export default function Home() {
         <Services />
         <TiltWorkList />
         <Work />
+        <Experience />
         <Process />
         <WhyChoose />
-        <Testimonials />
         <CTA />
       </main>
       <Footer />

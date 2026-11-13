@@ -4,13 +4,13 @@ import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { useRef } from 'react';
 import { GraduationCap, ShieldCheck, MapPin } from 'lucide-react';
-import { CONTACT, PORTFOLIO_ITEMS, STATS } from '@/lib/data';
+import { CONTACT, PORTFOLIO_ITEMS, PROFILE, STATS } from '@/lib/data';
 import { Counter, Reveal, SectionHeading, SpotlightCard } from './ui/motion';
 
 const FACTS = [
-  { icon: ShieldCheck, title: 'EC-Council CEHv11', text: 'Certified Ethical Hacker' },
+  { icon: ShieldCheck, title: 'Certified Ethical Hacker (CEHv11)', text: 'EC-Council · 2022' },
   { icon: GraduationCap, title: 'BSc Computer Science', text: 'KNUST, Class of 2023' },
-  { icon: MapPin, title: CONTACT.location, text: 'Working with clients worldwide' },
+  { icon: MapPin, title: `${CONTACT.location} · ${CONTACT.timezone}`, text: PROFILE.availability },
 ];
 
 export default function About() {
@@ -25,9 +25,9 @@ export default function About() {
           <SectionHeading
             align="left"
             eyebrow="About"
-            title="Security-first thinking, applied to everything I build."
-            highlight={['Security-first']}
-            description="I'm Grace Francis — the analyst behind GraceGate. I help teams find weaknesses before attackers do, then design and ship secure web, mobile and brand experiences that hold up under pressure."
+            title="I design it, build it, animate it and secure it."
+            highlight={['secure']}
+            description="I'm Francis Amoako, the designer, developer and ethical hacker behind GraceGate. I create user-centred UI/UX, brand visuals, flyers and motion graphics that grab attention, then ship them as responsive websites and mobile apps that are not just good-looking, but robust and safe."
           />
           <div className="mt-10 space-y-3">
             {FACTS.map(({ icon: Icon, title, text }, i) => (

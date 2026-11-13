@@ -1,12 +1,12 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { Activity, ArrowUpRight, Check, Cpu, Globe, Palette, Search, ShieldAlert, type LucideIcon } from 'lucide-react';
+import { ArrowUpRight, Check, Clapperboard, Globe, Palette, PenTool, ShieldCheck, Smartphone, type LucideIcon } from 'lucide-react';
 import { SERVICES_DATA } from '@/lib/data';
 import { useContact } from './Providers';
 import { EASE, SectionHeading, SpotlightCard } from './ui/motion';
 
-const ICONS: Record<string, LucideIcon> = { ShieldAlert, Activity, Globe, Cpu, Search, Palette };
+const ICONS: Record<string, LucideIcon> = { PenTool, Globe, Smartphone, Palette, Clapperboard, ShieldCheck };
 
 export default function Services() {
   const { openContact } = useContact();
@@ -17,14 +17,14 @@ export default function Services() {
       <div className="container-x">
         <SectionHeading
           eyebrow="Services"
-          title="Offensive insight. Defensive discipline. Product craft."
-          highlight={['Product', 'craft.']}
-          description="Six focused service lines, from finding the cracks in your infrastructure to designing and shipping the product your customers use."
+          title="Everything your idea needs, from first sketch to secure launch."
+          highlight={['secure', 'launch.']}
+          description="Six services, one point of contact: design, development, motion and security, delivered with fast turnaround."
         />
 
         <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {SERVICES_DATA.map((s, i) => {
-            const Icon = ICONS[s.iconName] ?? ShieldAlert;
+            const Icon = ICONS[s.iconName] ?? Palette;
             return (
               <motion.div
                 key={s.id}

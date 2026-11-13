@@ -19,7 +19,7 @@ type Featured = {
 const FEATURED: Featured[] = [
   { src: '/designs/chez-amis-flyer-celebrity.webp', title: 'Chez Amis — Campaign Flyer', tag: 'Flyer Design', width: 1414, height: 2000, plane: '#1f8f3f' },
   { src: '/designs/mtcrestmark-brand-sheet.webp', title: 'MTCrestmark Brand Identity', tag: 'Brand Identity', width: 1672, height: 692, plane: '#0f5a35', fit: 'contain' },
-  { src: '/projects/web-mobile-apps.png', title: 'Secure FinTech Mobile Wallet', tag: 'Websites & Apps', width: 1200, height: 896, plane: '#e2541f' },
+  { src: '/projects/gracegate-portfolio-site.webp', title: 'GraceGate Portfolio Website', tag: 'Websites & Apps', width: 1440, height: 900, plane: '#7414e0' },
 ];
 
 function TiltItem({ item, i }: { item: Featured; i: number }) {

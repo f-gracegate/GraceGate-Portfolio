@@ -1,10 +1,8 @@
 export interface ServiceItem {
   id: string;
   title: string;
-  category: 'web-design' | 'digital-marketing';
-  iconName: string; // Dynamic icon mapper using lucide-react
+  iconName: string; // lucide-react icon name
   description: string;
-  isPopular?: boolean;
   features: string[];
 }
 
@@ -32,16 +30,6 @@ export interface WhyChooseItem {
   description: string;
 }
 
-export interface ProjectItem {
-  id: string;
-  title: string;
-  client: string;
-  category: 'Offensive Security' | 'Defensive Security' | 'Infrastructure Security' | 'Web/Mobile Apps' | 'UX/UI & Flyers' | 'Web Design' | 'Digital Marketing';
-  technologies: string[];
-  description: string;
-  imageColor: string; // Gradient color for project thumbnail mockup card
-  link?: string;
-}
 
 
 export interface DesignItem {
@@ -88,3 +76,6 @@ export interface PortfolioItem {
   fit: 'cover' | 'contain';
   technologies?: string[];
 }
+
+/** A development or security project; same shape as a portfolio entry. */
+export type ProjectItem = PortfolioItem;

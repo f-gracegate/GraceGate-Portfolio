@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'motion/react';
-import { ArrowDown, ArrowUpRight, ShieldCheck, Bug, Radar, Lock } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, ShieldCheck, PenTool, Clapperboard, Smartphone } from 'lucide-react';
 import { HERO_DATA, METRICS_DATA } from '@/lib/data';
 import { useContact } from './Providers';
 import { EASE, Magnetic } from './ui/motion';
@@ -54,10 +54,10 @@ function Terminal() {
 }
 
 const CHIPS = [
-  { icon: ShieldCheck, label: 'CEHv11 Certified', className: 'left-[-4%] top-[14%]', delay: 0 },
-  { icon: Bug, label: 'Pen Testing', className: 'right-[-2%] top-[6%]', delay: 0.8 },
-  { icon: Radar, label: 'Threat Analysis', className: 'right-[-6%] bottom-[30%]', delay: 1.6 },
-  { icon: Lock, label: 'Secure Apps', className: 'left-[2%] bottom-[22%]', delay: 2.4 },
+  { icon: PenTool, label: 'UI/UX Design', className: 'left-[-4%] top-[14%]', delay: 0 },
+  { icon: Clapperboard, label: 'Motion Graphics', className: 'right-[-2%] top-[6%]', delay: 0.8 },
+  { icon: Smartphone, label: 'Web & Mobile', className: 'right-[-6%] bottom-[30%]', delay: 1.6 },
+  { icon: ShieldCheck, label: 'CEHv11 Certified', className: 'left-[2%] bottom-[22%]', delay: 2.4 },
 ];
 
 export default function Hero() {
@@ -100,7 +100,7 @@ export default function Hero() {
           </motion.div>
 
           <h1 className="mt-7 font-display text-[2.6rem] font-semibold leading-[1.02] tracking-[-0.035em] text-white sm:text-6xl lg:text-[4.6rem]">
-            {['Securing systems.', 'Building products', 'that last.'].map((line, i) => (
+            {['Design it. Build it.', 'Animate it.', 'Secure it.'].map((line, i) => (
               <span key={line} className="block overflow-hidden pb-[0.08em]">
                 <motion.span
                   className={`block ${i === 2 ? 'text-shimmer' : ''}`}

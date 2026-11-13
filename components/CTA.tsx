@@ -34,7 +34,7 @@ export default function CTA() {
             <WordReveal text="Have a system to secure or a product to build?" highlight={['secure', 'build?']} />
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-white/55 sm:text-lg">
-            Tell me what you&apos;re working on. You&apos;ll get a clear plan, honest timelines and a reply within 24 hours.
+            Tell me what you&apos;re working on. You&apos;ll get a clear plan, honest timelines and a fast reply.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Magnetic>

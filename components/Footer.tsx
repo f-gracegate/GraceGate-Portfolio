@@ -2,14 +2,15 @@
 
 import Image from 'next/image';
 import { motion } from 'motion/react';
-import { ArrowUpRight, Facebook, Instagram, Linkedin, Mail, Phone } from 'lucide-react';
+import { ArrowUpRight, Mail, MessageCircle, Phone } from 'lucide-react';
 import { CONTACT, NAV_LINKS, SERVICES_DATA } from '@/lib/data';
 import { useContact } from './Providers';
 
+// Social profiles go here once available; for now, direct contact channels.
 const SOCIALS = [
-  { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-  { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
-  { icon: Facebook, href: 'https://facebook.com', label: 'Facebook' },
+  { icon: MessageCircle, href: CONTACT.whatsapp, label: 'WhatsApp' },
+  { icon: Mail, href: `mailto:${CONTACT.email}`, label: 'Email' },
+  { icon: Phone, href: CONTACT.phoneHref, label: 'Call' },
 ];
 
 export default function Footer() {
@@ -22,15 +23,15 @@ export default function Footer() {
         <div className="lg:col-span-5">
           <Image src="/brand/gracegate-logo-light.png" alt="GraceGate" width={1066} height={679} className="h-20 w-auto" />
           <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/45">
-            Cybersecurity analyst and digital product builder. Penetration testing, vulnerability assessment, secure
-            infrastructure, and thoughtfully designed web &amp; mobile products.
+            The studio of Francis Amoako: UI/UX and graphic design, websites and mobile apps, motion graphics and
+            cybersecurity, built with security in from day one.
           </p>
           <div className="mt-6 flex gap-2">
             {SOCIALS.map(({ icon: Icon, href, label }) => (
               <motion.a
                 key={label}
                 href={href}
-                target="_blank"
+                target={href.startsWith('http') ? '_blank' : undefined}
                 rel="noopener noreferrer"
                 aria-label={label}
                 whileHover={{ y: -3 }}
