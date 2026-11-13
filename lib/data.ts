@@ -353,4 +353,16 @@ export const DESIGN_DATA: DesignItem[] = [
     height: 692,
     fit: 'contain',
   },
+  {
+    id: 'd6',
+    title: 'Drop-Ball Logo Reveal',
+    client: 'GraceGate Technologies',
+    type: 'Motion graphic',
+    description: 'Animated logo sting: a glossy brand-purple sphere drops, bounces with a ripple and morphs into the GraceGate Technologies logo and its tagline.',
+    src: '/designs/gracegate-technologies-logo-motion-poster.webp',
+    video: '/designs/gracegate-technologies-logo-motion.mp4',
+    width: 1080,
+    height: 1080,
+    fit: 'cover',
+  },
 ];

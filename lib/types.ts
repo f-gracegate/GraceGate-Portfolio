@@ -48,9 +48,12 @@ export interface DesignItem {
   id: string;
   title: string;
   client: string;
-  type: 'Flyer' | 'Logo' | 'Brand identity';
+  type: 'Flyer' | 'Logo' | 'Brand identity' | 'Motion graphic';
   description: string;
+  /** Image, or the poster frame when `video` is set */
   src: string;
+  /** Optional MP4 for motion work */
+  video?: string;
   width: number;
   height: number;
   /** Logos sit on a light canvas; flyers fill their frame. */

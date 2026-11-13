@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { AnimatePresence, motion } from 'motion/react';
-import { ArrowUpRight, ChevronLeft, ChevronRight, Maximize2, X } from 'lucide-react';
+import { ArrowUpRight, ChevronLeft, ChevronRight, Maximize2, Play, X } from 'lucide-react';
 import { DESIGN_DATA } from '@/lib/data';
 import type { DesignItem } from '@/lib/types';
 import { useContact } from './Providers';
@@ -15,11 +15,13 @@ const LAYOUT: Record<string, string> = {
   d2: 'lg:row-span-3',
   d3: 'lg:row-span-1',
   d4: 'lg:row-span-2',
-  d5: 'lg:col-span-3 lg:row-span-2',
+  d5: 'lg:col-span-2 lg:row-span-2',
+  d6: 'lg:row-span-2',
 };
 
 function Card({ item, index, onOpen }: { item: DesignItem; index: number; onOpen: () => void }) {
   const contain = item.fit === 'contain';
+  const video = Boolean(item.video);
   return (
     <motion.button
       type="button"
@@ -29,12 +31,32 @@ function Card({ item, index, onOpen }: { item: DesignItem; index: number; onOpen
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.8, delay: (index % 3) * 0.1, ease: EASE }}
       className={`group relative block overflow-hidden rounded-3xl border border-white/[0.08] text-left ${
-        contain ? 'bg-white' : 'bg-[#eef0ec]'
+        contain || video ? 'bg-white' : 'bg-[#eef0ec]'
       }`}
       style={{ aspectRatio: `${item.width} / ${item.height}` }}
       aria-label={`View ${item.title}`}
     >
       <motion.div layoutId={`design-${item.id}`} className="absolute inset-0">
+        {item.video ? (
+          <video
+            src={item.video}
+            poster={item.src}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            // React doesn't render the muted attribute on the server, which can block autoplay.
+            ref={(el) => {
+              if (el && !el.muted) {
+                el.muted = true;
+                el.play().catch(() => {});
+              }
+            }}
+            aria-label={`${item.title} for ${item.client}`}
+            className="h-full w-full object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
+          />
+        ) : (
         <Image
           src={item.src}
           alt={`${item.title} for ${item.client}`}
@@ -44,6 +66,7 @@ function Card({ item, index, onOpen }: { item: DesignItem; index: number; onOpen
             contain ? 'object-contain p-6 sm:p-10' : 'object-contain'
           }`}
         />
+        )}
       </motion.div>
 
       {/* Hover overlay */}
@@ -56,6 +79,11 @@ function Card({ item, index, onOpen }: { item: DesignItem; index: number; onOpen
       <span className="absolute left-4 top-4 rounded-full border border-black/5 bg-ink-950/80 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-white/85 backdrop-blur-md">
         {item.type}
       </span>
+      {video && (
+        <span className="absolute bottom-4 right-4 flex items-center gap-1.5 rounded-full bg-ink-950/80 px-3 py-1.5 text-[11px] font-medium text-white backdrop-blur-md transition-opacity duration-500 group-hover:opacity-0">
+          <Play size={11} className="fill-white" /> Play with sound
+        </span>
+      )}
       <span className="absolute right-4 top-4 grid h-10 w-10 scale-75 place-items-center rounded-full bg-gradient-to-br from-brand-400 to-brand-700 text-white opacity-0 shadow-lg transition-all duration-500 group-hover:scale-100 group-hover:opacity-100">
         <Maximize2 size={16} />
       </span>
@@ -113,7 +141,7 @@ function Lightbox({ index, onClose, onStep }: { index: number; onClose: () => vo
           layoutId={`design-${item.id}`}
           className={`pointer-events-auto relative max-w-full overflow-hidden rounded-2xl shadow-2xl shadow-black/60 ${contain ? 'bg-white p-4 sm:p-8' : ''}`}
           transition={{ type: 'spring', stiffness: 220, damping: 30 }}
-          drag="x"
+          drag={item.video ? false : 'x'}
           dragConstraints={{ left: 0, right: 0 }}
           dragElastic={0.25}
           onDragEnd={(_, info) => {
@@ -121,6 +149,20 @@ function Lightbox({ index, onClose, onStep }: { index: number; onClose: () => vo
             else if (info.offset.x > 80) onStep(-1);
           }}
         >
+          {item.video ? (
+            <video
+              key={item.video}
+              src={item.video}
+              poster={item.src}
+              autoPlay
+              controls
+              playsInline
+              loop
+              aria-label={`${item.title} for ${item.client}`}
+              className="block h-auto max-w-full bg-white"
+              style={{ width: `min(88vw, calc((100svh - 280px) * ${item.width / item.height}))` }}
+            />
+          ) : (
           <Image
             src={item.src}
             alt={`${item.title} for ${item.client}`}
@@ -132,6 +174,7 @@ function Lightbox({ index, onClose, onStep }: { index: number; onClose: () => vo
             className="block h-auto max-w-full select-none"
             style={{ width: `min(88vw, calc((100svh - ${contain ? 340 : 280}px) * ${item.width / item.height}))` }}
           />
+          )}
         </motion.div>
 
         <button
@@ -195,9 +238,9 @@ export default function DesignGallery() {
       <div className="container-x">
         <SectionHeading
           eyebrow="Design portfolio"
-          title="Flyers and brand identities made for real clients."
-          highlight={['Flyers', 'brand', 'identities']}
-          description="A selection of print and digital design work, from campaign flyers to complete logo systems. Tap any piece to view it full size."
+          title="Flyers, brand identities and motion made for real clients."
+          highlight={['Flyers,', 'brand', 'identities', 'motion']}
+          description="A selection of print and digital design work, from campaign flyers and complete logo systems to animated logo reveals. Tap any piece to view it full size."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:auto-rows-[175px] lg:grid-cols-3">
