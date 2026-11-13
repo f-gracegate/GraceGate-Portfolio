@@ -12,6 +12,9 @@ import Process from '@/components/Process';
 import WhyChoose from '@/components/WhyChoose';
 import Testimonials from '@/components/Testimonials';
 import CTA from '@/components/CTA';
+import DeckShowcase from '@/components/showcase/DeckShowcase';
+import FactCards from '@/components/showcase/FactCards';
+import TiltWorkList from '@/components/showcase/TiltWorkList';
 import Footer from '@/components/Footer';
 import FloatingActions from '@/components/FloatingActions';
 
@@ -24,9 +27,12 @@ export default function Home() {
       <Navbar />
       <main className="relative">
         <Hero />
+        <DeckShowcase />
         <ToolMarquee />
         <About />
+        <FactCards />
         <Services />
+        <TiltWorkList />
         <Work />
         <DesignGallery />
         <Process />
