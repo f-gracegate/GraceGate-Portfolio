@@ -16,10 +16,10 @@ export default function Process() {
         <div className="lg:sticky lg:top-32 lg:self-start">
           <SectionHeading
             align="left"
-            eyebrow="How I work"
-            title="A clear, accountable process from scope to sign-off."
-            highlight={['accountable']}
-            description="Every engagement follows the same disciplined path, so you always know what's happening, what was found and what comes next."
+            index="08" eyebrow="How I work"
+            title="How a project runs."
+            highlight={['runs.']}
+            description="The same four steps for every project, so you always know where things stand."
           />
         </div>
 

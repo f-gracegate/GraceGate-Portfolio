@@ -5,9 +5,6 @@ import {
   animate,
   motion,
   useInView,
-  useMotionTemplate,
-  useMotionValue,
-  useSpring,
   type HTMLMotionProps,
 } from 'motion/react';
 
@@ -71,12 +68,15 @@ export function WordReveal({
 /** Section heading block shared by every section. */
 export function SectionHeading({
   eyebrow,
+  index,
   title,
   highlight,
   description,
   align = 'center',
 }: {
   eyebrow: string;
+  /** Section number shown before the label, e.g. "03" */
+  index?: string;
   title: string;
   highlight?: string[];
   description?: string;
@@ -86,10 +86,11 @@ export function SectionHeading({
   return (
     <div className={`flex flex-col gap-5 ${center ? 'items-center text-center' : 'items-start text-left'}`}>
       <Reveal y={12}>
-        <span className="eyebrow">
-          <span className="h-1.5 w-1.5 rounded-full bg-brand-400 shadow-[0_0_10px_#a970ff]" />
-          {eyebrow}
-        </span>
+        <p className="flex items-center gap-3 text-sm text-white/55">
+          {index && <span className="font-display font-semibold text-brand-400">{index}</span>}
+          <span aria-hidden className="h-px w-8 bg-white/25" />
+          <span>{eyebrow}</span>
+        </p>
       </Reveal>
       <h2
         className={`font-display text-3xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl ${center ? 'max-w-3xl' : 'max-w-2xl'}`}
@@ -107,86 +108,26 @@ export function SectionHeading({
   );
 }
 
-/** Button/link that is gently pulled toward the cursor. */
-export function Magnetic({ children, strength = 0.35, className }: { children: React.ReactNode; strength?: number; className?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const x = useSpring(0, { stiffness: 200, damping: 15, mass: 0.3 });
-  const y = useSpring(0, { stiffness: 200, damping: 15, mass: 0.3 });
-
-  return (
-    <motion.div
-      ref={ref}
-      style={{ x, y }}
-      className={`inline-block ${className ?? ''}`}
-      onPointerMove={(e) => {
-        if (e.pointerType !== 'mouse' || !ref.current) return;
-        const r = ref.current.getBoundingClientRect();
-        x.set((e.clientX - (r.left + r.width / 2)) * strength);
-        y.set((e.clientY - (r.top + r.height / 2)) * strength);
-      }}
-      onPointerLeave={() => {
-        x.set(0);
-        y.set(0);
-      }}
-    >
-      {children}
-    </motion.div>
-  );
+/** Inline wrapper kept for layout compatibility (the cursor-pull effect was removed). */
+export function Magnetic({ children, className }: { children: React.ReactNode; strength?: number; className?: string }) {
+  return <div className={`inline-block ${className ?? ''}`}>{children}</div>;
 }
 
-/** Card with a radial spotlight that follows the cursor and a subtle 3D tilt. */
+/** Plain card with a quiet hover state (no tilt, no cursor spotlight). */
 export function SpotlightCard({
   children,
   className = '',
-  tilt = true,
 }: {
   children: React.ReactNode;
   className?: string;
   tilt?: boolean;
 }) {
-  const mx = useMotionValue(-400);
-  const my = useMotionValue(-400);
-  const rx = useSpring(0, { stiffness: 150, damping: 18 });
-  const ry = useSpring(0, { stiffness: 150, damping: 18 });
-  const bg = useMotionTemplate`radial-gradient(420px circle at ${mx}px ${my}px, rgba(139,44,245,0.16), transparent 65%)`;
-  const border = useMotionTemplate`radial-gradient(260px circle at ${mx}px ${my}px, rgba(201,166,255,0.55), transparent 70%)`;
-
   return (
-    <motion.div
-      style={{ rotateX: rx, rotateY: ry, transformPerspective: 1000 }}
-      onPointerMove={(e) => {
-        const r = e.currentTarget.getBoundingClientRect();
-        const px = e.clientX - r.left;
-        const py = e.clientY - r.top;
-        mx.set(px);
-        my.set(py);
-        if (tilt && e.pointerType === 'mouse') {
-          ry.set(((px / r.width) - 0.5) * 7);
-          rx.set(-((py / r.height) - 0.5) * 7);
-        }
-      }}
-      onPointerLeave={() => {
-        mx.set(-400);
-        my.set(-400);
-        rx.set(0);
-        ry.set(0);
-      }}
-      className={`group relative overflow-hidden rounded-3xl border border-white/[0.07] bg-ink-900/70 ${className}`}
+    <div
+      className={`group relative overflow-hidden rounded-3xl border border-white/[0.07] bg-ink-900/70 transition-colors duration-300 hover:border-white/15 ${className}`}
     >
-      {/* cursor-following border highlight */}
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 rounded-[inherit] p-px opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-        style={{
-          background: border,
-          WebkitMask: 'linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)',
-          WebkitMaskComposite: 'xor',
-          maskComposite: 'exclude',
-        }}
-      />
-      <motion.div aria-hidden className="pointer-events-none absolute inset-0" style={{ background: bg }} />
       <div className="relative h-full">{children}</div>
-    </motion.div>
+    </div>
   );
 }
 

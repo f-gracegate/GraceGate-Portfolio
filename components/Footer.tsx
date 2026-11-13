@@ -2,14 +2,16 @@
 
 import Image from 'next/image';
 import { motion } from 'motion/react';
-import { ArrowUpRight, Facebook, Instagram, Linkedin, Mail, Phone } from 'lucide-react';
+import { ArrowUpRight, Ghost, Mail, MessageCircle, Phone } from 'lucide-react';
 import { CONTACT, NAV_LINKS, SERVICES_DATA } from '@/lib/data';
 import { useContact } from './Providers';
 
+// Social profiles go here once available; for now, direct contact channels.
 const SOCIALS = [
-  { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-  { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
-  { icon: Facebook, href: 'https://facebook.com', label: 'Facebook' },
+  { icon: MessageCircle, href: CONTACT.whatsapp, label: 'WhatsApp' },
+  { icon: Ghost, href: CONTACT.snapchat, label: `Snapchat @${CONTACT.snapchatHandle}` },
+  { icon: Mail, href: `mailto:${CONTACT.email}`, label: 'Email' },
+  { icon: Phone, href: CONTACT.phoneHref, label: 'Call' },
 ];
 
 export default function Footer() {
@@ -22,15 +24,15 @@ export default function Footer() {
         <div className="lg:col-span-5">
           <Image src="/brand/gracegate-logo-light.png" alt="GraceGate" width={1066} height={679} className="h-20 w-auto" />
           <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/45">
-            Cybersecurity analyst and digital product builder. Penetration testing, vulnerability assessment, secure
-            infrastructure, and thoughtfully designed web &amp; mobile products.
+            The studio of Francis Amoako: UI/UX and graphic design, websites and mobile apps, motion graphics and
+            cybersecurity, built with security in from day one.
           </p>
           <div className="mt-6 flex gap-2">
             {SOCIALS.map(({ icon: Icon, href, label }) => (
               <motion.a
                 key={label}
                 href={href}
-                target="_blank"
+                target={href.startsWith('http') ? '_blank' : undefined}
                 rel="noopener noreferrer"
                 aria-label={label}
                 whileHover={{ y: -3 }}
@@ -43,7 +45,7 @@ export default function Footer() {
         </div>
 
         <div className="lg:col-span-2">
-          <h4 className="font-mono text-[11px] uppercase tracking-[0.22em] text-white/35">Navigate</h4>
+          <h4 className="text-sm font-medium text-white/85">Navigate</h4>
           <ul className="mt-5 space-y-3 text-sm">
             {NAV_LINKS.map((l) => (
               <li key={l.id}>
@@ -56,7 +58,7 @@ export default function Footer() {
         </div>
 
         <div className="lg:col-span-3">
-          <h4 className="font-mono text-[11px] uppercase tracking-[0.22em] text-white/35">Services</h4>
+          <h4 className="text-sm font-medium text-white/85">Services</h4>
           <ul className="mt-5 space-y-3 text-sm">
             {SERVICES_DATA.map((s) => (
               <li key={s.id}>
@@ -69,7 +71,7 @@ export default function Footer() {
         </div>
 
         <div className="lg:col-span-2">
-          <h4 className="font-mono text-[11px] uppercase tracking-[0.22em] text-white/35">Contact</h4>
+          <h4 className="text-sm font-medium text-white/85">Contact</h4>
           <ul className="mt-5 space-y-3 text-sm">
             <li>
               <a href={`mailto:${CONTACT.email}`} className="flex items-start gap-2 break-all text-white/60 transition-colors hover:text-white">
@@ -78,9 +80,19 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href={`tel:${CONTACT.phone.replace(/\s/g, '')}`} className="flex items-center gap-2 text-white/60 transition-colors hover:text-white">
+              <a href={CONTACT.phoneHref} className="flex items-center gap-2 text-white/60 transition-colors hover:text-white">
                 <Phone size={15} className="shrink-0 text-brand-400" />
                 {CONTACT.phone}
+              </a>
+            </li>
+                      <li>
+              <a
+                href={CONTACT.snapchat}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-white/60 transition-colors hover:text-white"
+              >
+                <Ghost size={15} className="shrink-0 text-brand-400" />@{CONTACT.snapchatHandle}
               </a>
             </li>
           </ul>
@@ -99,7 +111,7 @@ export default function Footer() {
               className="h-16 w-auto"
             />
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-white/40">Powered by</p>
+              <p className="text-xs text-white/45">Powered by</p>
               <p className="mt-1 font-display text-lg font-semibold text-white">GraceGate Technologies</p>
             </div>
           </div>
@@ -118,18 +130,6 @@ export default function Footer() {
         <p>{CONTACT.location}</p>
       </div>
 
-      {/* Giant wordmark */}
-      <div aria-hidden className="pointer-events-none select-none overflow-hidden">
-        <motion.p
-          initial={{ y: '40%', opacity: 0 }}
-          whileInView={{ y: '0%', opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-          className="-mb-[0.22em] bg-gradient-to-b from-brand-500/25 via-brand-700/10 to-transparent bg-clip-text text-center font-display text-[19vw] font-bold leading-none tracking-[-0.06em] text-transparent"
-        >
-          GraceGate
-        </motion.p>
-      </div>
     </footer>
   );
 }

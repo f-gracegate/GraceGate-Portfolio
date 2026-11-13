@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-sora), var(--font-inter), ui-sans-serif, sans-serif;
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-montserrat), var(--font-poppins), ui-sans-serif, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, monospace;
 
   --color-ink-950: #05030a;
@@ -78,19 +78,11 @@ body {
   .container-x {
     @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
   }
-  .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full border border-brand-500/25 bg-brand-500/[0.07] px-3.5 py-1.5 font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-brand-300;
-  }
   .text-gradient {
     @apply bg-gradient-to-br from-white via-brand-300 to-brand-500 bg-clip-text text-transparent;
   }
   .text-shimmer {
-    background: linear-gradient(110deg, #a970ff 20%, #ffffff 40%, #c9a6ff 55%, #8b2cf5 75%);
-    background-size: 200% 100%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: var(--animate-shimmer);
+    color: var(--color-brand-400);
   }
   .glass {
     @apply border border-white/[0.07] bg-white/[0.025] backdrop-blur-xl;

@@ -1,33 +1,28 @@
 'use client';
 
 import Image from 'next/image';
-import { motion, useScroll, useTransform } from 'motion/react';
-import { useRef } from 'react';
 import { GraduationCap, ShieldCheck, MapPin } from 'lucide-react';
-import { CONTACT, STATS } from '@/lib/data';
+import { CONTACT, PORTFOLIO_ITEMS, PROFILE, STATS } from '@/lib/data';
 import { Counter, Reveal, SectionHeading, SpotlightCard } from './ui/motion';
 
 const FACTS = [
-  { icon: ShieldCheck, title: 'EC-Council CEHv11', text: 'Certified Ethical Hacker' },
+  { icon: ShieldCheck, title: 'Certified Ethical Hacker (CEHv11)', text: 'EC-Council · 2022' },
   { icon: GraduationCap, title: 'BSc Computer Science', text: 'KNUST, Class of 2023' },
-  { icon: MapPin, title: CONTACT.location, text: 'Working with clients worldwide' },
+  { icon: MapPin, title: `${CONTACT.location} · ${CONTACT.timezone}`, text: PROFILE.availability },
 ];
 
 export default function About() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
-  const rotate = useTransform(scrollYProgress, [0, 1], [-20, 20]);
 
   return (
     <section id="about" className="relative scroll-mt-24 py-28 sm:py-36">
-      <div ref={ref} className="container-x grid gap-16 lg:grid-cols-2 lg:items-center">
+      <div className="container-x grid gap-16 lg:grid-cols-2 lg:items-center">
         <div>
           <SectionHeading
             align="left"
-            eyebrow="About"
-            title="Security-first thinking, applied to everything I build."
-            highlight={['Security-first']}
-            description="I'm Grace Francis — the analyst behind GraceGate. I help teams find weaknesses before attackers do, then design and ship secure web, mobile and brand experiences that hold up under pressure."
+            index="01" eyebrow="About"
+            title="I design it, build it, animate it and secure it."
+            highlight={['secure']}
+            description="I'm Francis Amoako, the designer, developer and ethical hacker behind GraceGate. I create user-centred UI/UX, brand visuals, flyers and motion graphics that grab attention, then ship them as responsive websites and mobile apps that are not just good-looking, but robust and safe."
           />
           <div className="mt-10 space-y-3">
             {FACTS.map(({ icon: Icon, title, text }, i) => (
@@ -47,13 +42,8 @@ export default function About() {
         </div>
 
         <div className="relative">
-          <motion.div
-            aria-hidden
-            style={{ rotate }}
-            className="absolute -inset-10 -z-10 rounded-full bg-[conic-gradient(from_90deg,transparent,rgba(139,44,245,0.25),transparent_40%)] blur-3xl"
-          />
           <div className="grid grid-cols-2 gap-4">
-            {STATS.map((s, i) => (
+            {STATS.map((s) => (s.label === 'Portfolio pieces' ? { ...s, value: PORTFOLIO_ITEMS.length } : s)).map((s, i) => (
               <Reveal key={s.label} delay={i * 0.1}>
                 <SpotlightCard className="p-6 sm:p-8">
                   <Counter
@@ -67,9 +57,9 @@ export default function About() {
             ))}
           </div>
           <Reveal delay={0.4}>
-            <div className="border-spin mt-4 flex items-center justify-between gap-4 rounded-3xl bg-ink-900/80 p-5 sm:p-6">
+            <div className="mt-4 flex items-center justify-between gap-4 rounded-3xl border border-white/[0.07] bg-ink-900/70 p-5 sm:p-6">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-white/40">Powered by</p>
+                <p className="text-xs text-white/45">Powered by</p>
                 <p className="mt-1 font-display text-lg font-semibold text-white">GraceGate Technologies</p>
               </div>
               <Image
