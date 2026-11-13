@@ -1,4 +1,4 @@
-import { ServiceItem, MetricItem, TestimonialItem, WhyChooseItem, ProjectItem } from './types';
+import { ServiceItem, MetricItem, TestimonialItem, WhyChooseItem, ProjectItem, DesignItem } from './types';
 
 export const CONTACT = {
   email: 'gracefrancis0895@gmail.com',
@@ -11,6 +11,7 @@ export const NAV_LINKS = [
   { id: 'about', label: 'About' },
   { id: 'services', label: 'Services' },
   { id: 'work', label: 'Work' },
+  { id: 'designs', label: 'Designs' },
   { id: 'process', label: 'Process' },
   { id: 'testimonials', label: 'Reviews' },
 ];
@@ -294,4 +295,62 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
     description: 'Designed the complete responsive system interface and promotional media assets/flyers to optimize SaaS onboarding, achieving a structured flow that reduced conversion drop-offs.',
     imageColor: 'from-teal-950 via-neutral-900 to-indigo-950'
   }
+];
+
+export const DESIGN_DATA: DesignItem[] = [
+  {
+    id: 'd1',
+    title: 'Good Food, Good Vibes — Campaign Flyer',
+    client: 'Chez Amis Bar & Grill',
+    type: 'Flyer',
+    description: 'Promotional flyer featuring the brand ambassadors, opening hours, ordering lines and location, built around a bold diamond photo grid in the brand’s green and red.',
+    src: '/designs/chez-amis-flyer-celebrity.webp',
+    width: 1414,
+    height: 2000,
+    fit: 'cover',
+  },
+  {
+    id: 'd2',
+    title: 'Bite Into Happiness — Menu Flyer',
+    client: 'Chez Amis Bar & Grill',
+    type: 'Flyer',
+    description: 'Menu-led variation of the campaign highlighting burgers, shawarma, hotdogs and sandwiches with food photography and clear calls to order.',
+    src: '/designs/chez-amis-flyer-menu.webp',
+    width: 1414,
+    height: 2000,
+    fit: 'cover',
+  },
+  {
+    id: 'd3',
+    title: 'Wynprint Media Logo',
+    client: 'Wynprint Media',
+    type: 'Logo',
+    description: 'App-style wordmark for a print and media studio. The “W” is built from CMYK-coloured strokes, nodding to the print process.',
+    src: '/designs/wynprint-media-logo.webp',
+    width: 1886,
+    height: 687,
+    fit: 'contain',
+  },
+  {
+    id: 'd4',
+    title: 'GraceGate Store Logo',
+    client: 'GraceGate Store',
+    type: 'Logo',
+    description: 'Retail extension of the GraceGate identity, pairing the GG monogram with a shopping-bag motif.',
+    src: '/designs/gracegate-store-logo.webp',
+    width: 1254,
+    height: 1254,
+    fit: 'contain',
+  },
+  {
+    id: 'd5',
+    title: 'MTCrestmark Brand Identity',
+    client: 'MTCrestmark Enterprise',
+    type: 'Brand identity',
+    description: 'Complete logo system: horizontal and stacked lockups, circular seals and an app icon, each in light and dark green variants.',
+    src: '/designs/mtcrestmark-brand-sheet.webp',
+    width: 1672,
+    height: 692,
+    fit: 'contain',
+  },
 ];

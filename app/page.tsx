@@ -7,6 +7,7 @@ import ToolMarquee from '@/components/ToolMarquee';
 import About from '@/components/About';
 import Services from '@/components/Services';
 import Work from '@/components/Work';
+import DesignGallery from '@/components/DesignGallery';
 import Process from '@/components/Process';
 import WhyChoose from '@/components/WhyChoose';
 import Testimonials from '@/components/Testimonials';
@@ -27,6 +28,7 @@ export default function Home() {
         <About />
         <Services />
         <Work />
+        <DesignGallery />
         <Process />
         <WhyChoose />
         <Testimonials />

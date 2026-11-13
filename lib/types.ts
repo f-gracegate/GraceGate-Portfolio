@@ -43,3 +43,16 @@ export interface ProjectItem {
   link?: string;
 }
 
+
+export interface DesignItem {
+  id: string;
+  title: string;
+  client: string;
+  type: 'Flyer' | 'Logo' | 'Brand identity';
+  description: string;
+  src: string;
+  width: number;
+  height: number;
+  /** Logos sit on a light canvas; flyers fill their frame. */
+  fit: 'cover' | 'contain';
+}
