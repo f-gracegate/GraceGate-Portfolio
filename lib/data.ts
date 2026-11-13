@@ -33,10 +33,10 @@ export const PROCESS_STEPS = [
 ];
 
 export const STATS = [
-  { value: 10, suffix: '+', label: 'Projects delivered' },
+  { value: 16, suffix: '', label: 'Portfolio pieces' },
   { value: 6, suffix: '', label: 'Core service lines' },
+  { value: 5, suffix: '', label: 'Disciplines' },
   { value: 24, suffix: 'h', label: 'Response time' },
-  { value: 2023, suffix: '', label: 'KNUST CS graduate' },
 ];
 
 
@@ -44,7 +44,7 @@ export const HERO_DATA = {
   name: 'GraceGate',
   badge: 'Certified Ethical Hacker (CEHv11)',
   tagline: 'Cybersecurity Analyst & CS Specialist',
-  description: 'Cybersecurity-focused Computer Science graduate from Kwame Nkrumah University of Science and Technology (KNUST). Hands-on experience in penetration testing, network monitoring, vulnerability assessment, and secure enterprise administration. Dedicated to defensive resilience and threat auditing.',
+  description: 'Certified ethical hacker and KNUST computer science graduate. I test and harden systems, build secure websites and apps, and design the brands that represent them — all under one gate.',
   ribbon: 'Security Assessment • Penetration Testing • SOC Analyst Support • KNUST Alumni 2023'
 };
 
@@ -112,7 +112,7 @@ export const SERVICES_DATA: ServiceItem[] = [
   {
     id: 'net-infra-sec',
     category: 'digital-marketing', // Mapping under second tab or similar
-    title: 'Enterprise Network & Infrastructure security',
+    title: 'Enterprise Network & Infrastructure Security',
     iconName: 'Cpu',
     description: 'Configuring and monitoring routers, switches, and firewalls to ensure high-uptime availability and defense-in-depth routing protection.',
     features: [
@@ -140,15 +140,15 @@ export const SERVICES_DATA: ServiceItem[] = [
   {
     id: 'ui-ux-flyers',
     category: 'digital-marketing',
-    title: 'UI/UX & Graphic Design (Flyers)',
+    title: 'Graphic Design, Branding & Motion',
     iconName: 'Palette',
-    description: 'Designing intuitive, elegant user interfaces and visually striking marketing flyers to elevate brand engagement and awareness.',
+    description: 'Flyers, logos, complete brand identities and animated logo reveals that make a business instantly recognisable, in print and on screen.',
     features: [
-      'High-fidelity interactive Figma wireframes and prototypes',
-      'Creative marketing flyer layouts and digital poster designs',
-      'Modern, balanced typography pairings and visual brand kits',
-      'User-centric interface research and interactive wireframing',
-      'Multi-format graphic templates (print & digital-ready)'
+      'Campaign, event and menu flyers (print & social-ready)',
+      'Logo design and full brand identity systems',
+      'Motion graphics and animated logo reveals',
+      'UI/UX design: Figma wireframes and prototypes',
+      'Multi-format templates and brand kits'
     ]
   }
 ];
@@ -434,9 +434,9 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = PORTFOLIO_CATEGORIES.flatMap((c)
 
 /** Which request-form service each category maps to. */
 export const CATEGORY_SERVICE: Record<PortfolioCategory, string> = {
-  Flyers: 'UI/UX & Graphic Design (Flyers)',
-  'Logos & Branding': 'UI/UX & Graphic Design (Flyers)',
+  Flyers: 'Graphic Design, Branding & Motion',
+  'Logos & Branding': 'Graphic Design, Branding & Motion',
   'Websites & Apps': 'Web & Mobile App Creation',
-  'Motion Graphics': 'UI/UX & Graphic Design (Flyers)',
+  'Motion Graphics': 'Graphic Design, Branding & Motion',
   Cybersecurity: 'Penetration Testing & Ethical Hacking',
 };

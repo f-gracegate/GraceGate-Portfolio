@@ -7,8 +7,6 @@ import { EASE, SectionHeading, SpotlightCard } from './ui/motion';
 
 const ICONS: Record<string, LucideIcon> = { Shield, Cpu, Activity, Code, CheckCircle, Layers };
 
-// Bento layout: a few cards span two columns for rhythm
-const SPANS = ['lg:col-span-2', '', '', 'lg:col-span-2', 'lg:col-span-2', ''];
 
 export default function WhyChoose() {
   return (
@@ -20,10 +18,9 @@ export default function WhyChoose() {
           title="The depth of a specialist, the range of a builder."
           highlight={['specialist,', 'builder.']}
         />
-        <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {WHY_CHOOSE_DATA.map((w, i) => {
             const Icon = ICONS[w.iconName] ?? Shield;
-            const wide = SPANS[i] !== '';
             return (
               <motion.div
                 key={w.title}
@@ -31,14 +28,13 @@ export default function WhyChoose() {
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.7, delay: i * 0.07, ease: EASE }}
-                className={SPANS[i]}
               >
                 <SpotlightCard tilt={false} className="h-full p-7">
-                  <div className={`flex h-full gap-6 ${wide ? 'flex-col sm:flex-row sm:items-start sm:justify-between' : 'flex-col'}`}>
+                  <div className="flex h-full flex-col gap-6">
                     <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl border border-brand-400/20 bg-brand-500/10 text-brand-300 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
                       <Icon size={21} />
                     </span>
-                    <div className={wide ? 'sm:order-first sm:max-w-md sm:flex-1' : ''}>
+                    <div>
                       <h3 className="font-display text-lg font-semibold text-white">{w.title}</h3>
                       <p className="mt-2 text-sm leading-relaxed text-white/50">{w.description}</p>
                     </div>

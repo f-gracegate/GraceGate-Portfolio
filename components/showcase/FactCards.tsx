@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useId, useRef, useState } from 'react';
 import Image from 'next/image';
 import { animate, motion, useMotionTemplate, useMotionValue, useSpring } from 'motion/react';
-import { EASE } from '../ui/motion';
+import { EASE, SectionHeading } from '../ui/motion';
 
 /* ---------- 1. Dot grid that lights up around the cursor ---------- */
 
@@ -133,12 +133,12 @@ function RippleCard() {
       </div>
       <div className="grid flex-1 grid-cols-2 gap-x-4 gap-y-5 p-7">
         <div>
-          <p className="font-display text-lg font-semibold text-white">Credential</p>
-          <p className="mt-1 font-mono text-xs text-white/45">EC-Council CEHv11</p>
+          <p className="font-display text-lg font-semibold text-white">Security</p>
+          <p className="mt-1 font-mono text-xs text-white/45">Kali · Burp · Nmap</p>
         </div>
         <div>
-          <p className="font-display text-lg font-semibold text-white">Degree</p>
-          <p className="mt-1 font-mono text-xs text-white/45">BSc CS · KNUST</p>
+          <p className="font-display text-lg font-semibold text-white">Build &amp; design</p>
+          <p className="mt-1 font-mono text-xs text-white/45">Next.js · Flutter · Figma</p>
         </div>
         <p className="col-span-2 self-end font-display text-lg font-semibold text-white">
           Location: <span className="font-sans text-sm font-normal text-white/50">Accra, Ghana</span>
@@ -206,16 +206,8 @@ export default function FactCards() {
   return (
     <section aria-label="About GraceGate in three cards" className="relative py-20 sm:py-28">
       <div className="container-x">
-        <motion.p
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: EASE }}
-          className="font-display text-3xl font-semibold text-brand-400 sm:text-4xl"
-        >
-          (Beyond the code)
-        </motion.p>
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
+        <SectionHeading align="left" eyebrow="Beyond the code" title="How I think about the work." highlight={['think']} />
+        <div className="mt-12 grid gap-5 md:grid-cols-3">
           {cards.map((C, i) => (
             <motion.div
               key={i}

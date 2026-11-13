@@ -257,11 +257,15 @@ function Lightbox({
 export default function Work() {
   const [filter, setFilter] = useState<Filter>('All');
   const [open, setOpen] = useState<number | null>(null);
+  const [showAll, setShowAll] = useState(false);
+  const INITIAL = 9;
 
-  const items = useMemo(
+  const filtered = useMemo(
     () => (filter === 'All' ? PORTFOLIO_ITEMS : PORTFOLIO_ITEMS.filter((p) => p.category === filter)),
     [filter],
   );
+  const items = showAll || filtered.length <= INITIAL ? filtered : filtered.slice(0, INITIAL);
+  const hidden = filtered.length - items.length;
   const counts = useMemo(() => {
     const c: Record<string, number> = { All: PORTFOLIO_ITEMS.length };
     PORTFOLIO_ITEMS.forEach((p) => (c[p.category] = (c[p.category] ?? 0) + 1));
@@ -297,7 +301,10 @@ export default function Work() {
                   key={c}
                   role="tab"
                   aria-selected={filter === c}
-                  onClick={() => setFilter(c)}
+                  onClick={() => {
+                    setFilter(c);
+                    setShowAll(false);
+                  }}
                   className={`relative flex items-center gap-2 whitespace-nowrap rounded-full px-4 py-2 text-sm transition-colors ${
                     filter === c ? 'text-white' : 'text-white/50 hover:text-white/80'
                   }`}
@@ -329,6 +336,18 @@ export default function Work() {
               ))}
             </AnimatePresence>
           </motion.div>
+
+          {hidden > 0 && (
+            <motion.div layout className="mt-10 flex justify-center">
+              <button
+                onClick={() => setShowAll(true)}
+                className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:border-brand-400/50 hover:bg-brand-500/10"
+              >
+                View all {filtered.length} pieces
+                <span className="rounded-full bg-white/10 px-2 py-0.5 font-mono text-[11px] text-white/70">+{hidden}</span>
+              </button>
+            </motion.div>
+          )}
         </LayoutGroup>
       </div>
 

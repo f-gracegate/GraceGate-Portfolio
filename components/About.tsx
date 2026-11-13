@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { useRef } from 'react';
 import { GraduationCap, ShieldCheck, MapPin } from 'lucide-react';
-import { CONTACT, STATS } from '@/lib/data';
+import { CONTACT, PORTFOLIO_ITEMS, STATS } from '@/lib/data';
 import { Counter, Reveal, SectionHeading, SpotlightCard } from './ui/motion';
 
 const FACTS = [
@@ -53,7 +53,7 @@ export default function About() {
             className="absolute -inset-10 -z-10 rounded-full bg-[conic-gradient(from_90deg,transparent,rgba(139,44,245,0.25),transparent_40%)] blur-3xl"
           />
           <div className="grid grid-cols-2 gap-4">
-            {STATS.map((s, i) => (
+            {STATS.map((s) => (s.label === 'Portfolio pieces' ? { ...s, value: PORTFOLIO_ITEMS.length } : s)).map((s, i) => (
               <Reveal key={s.label} delay={i * 0.1}>
                 <SpotlightCard className="p-6 sm:p-8">
                   <Counter

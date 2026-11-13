@@ -46,7 +46,7 @@ export default function Services() {
                     </div>
                     <h3 className="mt-7 font-display text-xl font-semibold leading-snug text-white">{s.title}</h3>
                     <p className="mt-3 text-sm leading-relaxed text-white/50">{s.description}</p>
-                    <ul className="mt-6 space-y-2.5 border-t border-white/[0.06] pt-6">
+                    <ul className="mt-6 hidden space-y-2.5 border-t border-white/[0.06] pt-6 sm:block">
                       {s.features.slice(0, 4).map((f) => (
                         <li key={f} className="flex gap-2.5 text-[13px] leading-snug text-white/65">
                           <Check size={14} className="mt-0.5 shrink-0 text-brand-400" />
