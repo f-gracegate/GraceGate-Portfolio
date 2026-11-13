@@ -2,13 +2,14 @@
 
 import Image from 'next/image';
 import { motion } from 'motion/react';
-import { ArrowUpRight, Mail, MessageCircle, Phone } from 'lucide-react';
+import { ArrowUpRight, Ghost, Mail, MessageCircle, Phone } from 'lucide-react';
 import { CONTACT, NAV_LINKS, SERVICES_DATA } from '@/lib/data';
 import { useContact } from './Providers';
 
 // Social profiles go here once available; for now, direct contact channels.
 const SOCIALS = [
   { icon: MessageCircle, href: CONTACT.whatsapp, label: 'WhatsApp' },
+  { icon: Ghost, href: CONTACT.snapchat, label: `Snapchat @${CONTACT.snapchatHandle}` },
   { icon: Mail, href: `mailto:${CONTACT.email}`, label: 'Email' },
   { icon: Phone, href: CONTACT.phoneHref, label: 'Call' },
 ];
@@ -82,6 +83,16 @@ export default function Footer() {
               <a href={CONTACT.phoneHref} className="flex items-center gap-2 text-white/60 transition-colors hover:text-white">
                 <Phone size={15} className="shrink-0 text-brand-400" />
                 {CONTACT.phone}
+              </a>
+            </li>
+                      <li>
+              <a
+                href={CONTACT.snapchat}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-white/60 transition-colors hover:text-white"
+              >
+                <Ghost size={15} className="shrink-0 text-brand-400" />@{CONTACT.snapchatHandle}
               </a>
             </li>
           </ul>
