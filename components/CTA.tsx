@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from 'motion/react';
 import { useRef } from 'react';
-import { ArrowUpRight, MessageCircle } from 'lucide-react';
+import { ArrowUpRight, MessageCircle, Phone } from 'lucide-react';
 import { CONTACT } from '@/lib/data';
 import { useContact } from './Providers';
 import { Magnetic, WordReveal } from './ui/motion';
@@ -55,6 +55,16 @@ export default function CTA() {
               >
                 <MessageCircle size={17} />
                 Chat on WhatsApp
+              </a>
+            </Magnetic>
+            <Magnetic>
+              <a
+                href={CONTACT.phoneHref}
+                aria-label={`Call ${CONTACT.phone}`}
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-8 py-4 text-sm font-semibold text-white backdrop-blur transition-colors hover:border-white/30 hover:bg-white/[0.08]"
+              >
+                <Phone size={17} />
+                Call {CONTACT.phone}
               </a>
             </Magnetic>
           </div>

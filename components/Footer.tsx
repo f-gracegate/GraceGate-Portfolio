@@ -78,7 +78,7 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href={`tel:${CONTACT.phone.replace(/\s/g, '')}`} className="flex items-center gap-2 text-white/60 transition-colors hover:text-white">
+              <a href={CONTACT.phoneHref} className="flex items-center gap-2 text-white/60 transition-colors hover:text-white">
                 <Phone size={15} className="shrink-0 text-brand-400" />
                 {CONTACT.phone}
               </a>

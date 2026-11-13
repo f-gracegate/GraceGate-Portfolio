@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { Check, Loader2, Send, X } from 'lucide-react';
-import { SERVICES_DATA } from '@/lib/data';
+import { CONTACT, SERVICES_DATA } from '@/lib/data';
 import { saveServiceRequest, type ServiceRequest } from '@/lib/supabase';
 
 const SERVICES = [...SERVICES_DATA.map((s) => s.title), 'Something else'];
@@ -152,7 +152,12 @@ export default function ServiceRequestModal({ isOpen, onClose, preselectedServic
                     <h3 id="request-title" className="mt-2 font-display text-2xl font-semibold text-white sm:text-3xl">
                       Tell me about your project
                     </h3>
-                    <p className="mt-2 text-sm text-white/45">I reply to every request within 24 hours.</p>
+                    <p className="mt-2 text-sm text-white/45">
+                      I reply to every request within 24 hours. Prefer to talk?{' '}
+                      <a href={CONTACT.phoneHref} className="font-medium text-brand-300 underline-offset-4 hover:underline">
+                        Call {CONTACT.phone}
+                      </a>
+                    </p>
                   </div>
 
                   <div className="grid gap-4 sm:grid-cols-2">

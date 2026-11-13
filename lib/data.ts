@@ -13,6 +13,8 @@ import {
 export const CONTACT = {
   email: 'gracefrancis0895@gmail.com',
   phone: '+233 55 405 7773',
+  /** tel: link used by every call button */
+  phoneHref: 'tel:+233554057773',
   whatsapp: 'https://wa.me/233554057773',
   location: 'Accra, Ghana',
 };
