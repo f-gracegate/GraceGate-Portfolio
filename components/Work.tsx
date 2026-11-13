@@ -58,7 +58,7 @@ function Card({ item, index, onOpen }: { item: PortfolioItem; index: number; onO
       >
         <motion.div
           layoutId={`portfolio-${item.id}`}
-          className={`relative aspect-[4/3] overflow-hidden ${contain || item.video ? 'bg-white' : portrait ? 'bg-[#eef0ec]' : 'bg-ink-800'}`}
+          className={`relative aspect-[4/3] overflow-hidden ${contain || (item.video && !portrait) ? 'bg-white' : portrait ? (item.video ? 'bg-ink-950' : 'bg-[#eef0ec]') : 'bg-ink-800'}`}
         >
           {item.video ? (
             <PreviewVideo
@@ -82,7 +82,7 @@ function Card({ item, index, onOpen }: { item: PortfolioItem; index: number; onO
           </span>
           {item.video && (
             <span className="absolute left-4 top-4 flex items-center gap-1.5 rounded-full bg-ink-950/80 px-3 py-1.5 text-[11px] font-medium text-white backdrop-blur-md">
-              <Play size={11} className="fill-white" /> Play with sound
+              <Play size={11} className="fill-white" /> {item.hasAudio ? 'Play with sound' : 'Motion'}
             </span>
           )}
         </motion.div>

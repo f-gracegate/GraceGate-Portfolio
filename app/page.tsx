@@ -7,6 +7,7 @@ import Services from '@/components/Services';
 import Work from '@/components/Work';
 import Process from '@/components/Process';
 import Experience from '@/components/Experience';
+import Pricing from '@/components/Pricing';
 import CTA from '@/components/CTA';
 import DeckShowcase from '@/components/showcase/DeckShowcase';
 import FactCards from '@/components/showcase/FactCards';
@@ -28,6 +29,7 @@ export default function Home() {
         <Services />
         <TiltWorkList />
         <Work />
+        <Pricing />
         <Experience />
         <Process />
         <CTA />

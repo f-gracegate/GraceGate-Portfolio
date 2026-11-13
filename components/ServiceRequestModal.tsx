@@ -7,7 +7,7 @@ import { CONTACT, SERVICES_DATA } from '@/lib/data';
 import { saveServiceRequest, type ServiceRequest } from '@/lib/supabase';
 
 const SERVICES = [...SERVICES_DATA.map((s) => s.title), 'Something else'];
-const BUDGETS = ['Under $500', '$500 – $1,000', '$1,000 – $3,000', '$3,000+'];
+const BUDGETS = ['Under GHS 1,000', 'GHS 1,000 – 3,000', 'GHS 3,000 – 8,000', 'GHS 8,000 – 15,000', 'GHS 15,000+', 'Not sure yet'];
 const TIMELINES = ['1 – 2 weeks', '2 – 4 weeks', '1 month+', 'Flexible'];
 
 interface Props {

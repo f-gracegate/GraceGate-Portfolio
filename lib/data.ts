@@ -33,6 +33,7 @@ export const NAV_LINKS = [
   { id: 'about', label: 'About' },
   { id: 'services', label: 'Services' },
   { id: 'work', label: 'Work' },
+  { id: 'pricing', label: 'Pricing' },
   { id: 'experience', label: 'Experience' },
   { id: 'process', label: 'Process' },
 ];
@@ -435,8 +436,33 @@ export const DESIGN_DATA: DesignItem[] = [
     description: 'Animated logo sting: a glossy brand-purple sphere drops, bounces with a ripple and morphs into the GraceGate Technologies logo and its tagline.',
     src: '/designs/gracegate-technologies-logo-motion-poster.webp',
     video: '/designs/gracegate-technologies-logo-motion.mp4',
+    hasAudio: true,
     width: 1080,
     height: 1080,
+    fit: 'cover',
+  },
+  {
+    id: 'd9',
+    title: 'Website Packages animated rate card',
+    client: 'GraceGate Technologies',
+    type: 'Motion graphic',
+    description: 'Animated 2026 rate card for social media: the package table, add-ons and call to action build in one after another.',
+    src: '/designs/website-rate-card-animation-poster.webp',
+    video: '/designs/website-rate-card-animation.mp4',
+    width: 1080,
+    height: 1350,
+    fit: 'cover',
+  },
+  {
+    id: 'd10',
+    title: 'Motion Packages animated rate card',
+    client: 'GraceGate Technologies',
+    type: 'Motion graphic',
+    description: 'Companion animated rate card for motion graphics services, with prices for individuals, small businesses and companies revealed row by row.',
+    src: '/designs/motion-rate-card-animation-poster.webp',
+    video: '/designs/motion-rate-card-animation.mp4',
+    width: 1080,
+    height: 1350,
     fit: 'cover',
   },
 ];
@@ -453,6 +479,8 @@ const DESIGN_META: Record<string, { category: PortfolioCategory; tag: string }> 
   d4: { category: 'Logos & Branding', tag: 'Logo Design' },
   d5: { category: 'Logos & Branding', tag: 'Brand Identity' },
   d6: { category: 'Motion Graphics', tag: 'Logo Animation' },
+  d9: { category: 'Motion Graphics', tag: 'Animated Rate Card' },
+  d10: { category: 'Motion Graphics', tag: 'Animated Rate Card' },
 };
 
 const ALL_ITEMS: PortfolioItem[] = [
@@ -463,6 +491,7 @@ const ALL_ITEMS: PortfolioItem[] = [
     description: d.description,
     src: d.src,
     video: d.video,
+    hasAudio: d.hasAudio,
     width: d.width,
     height: d.height,
     fit: d.fit,
@@ -484,3 +513,73 @@ export const CATEGORY_SERVICE: Record<PortfolioCategory, string> = {
   'Motion Graphics': 'Motion Graphics',
   Cybersecurity: 'Cybersecurity',
 };
+
+/* ------------------------------------------------------------------ */
+/* Rate card 2026 (GHS). "Starting prices; final quote depends on project size & timeline." */
+
+export const PRICING_TIERS = ['Individuals', 'Small business', 'Companies'] as const;
+
+export const PRICING = {
+  websites: {
+    label: 'Websites',
+    service: 'Website Development',
+    packages: [
+      { name: 'Starter', detail: '1-page site, portfolio or landing page', prices: ['GHS 1,000', 'GHS 1,500', 'GHS 3,000'] },
+      { name: 'Standard', detail: 'Up to 5 pages: Home, About, Services, Gallery, Contact', prices: ['GHS 2,500', 'GHS 3,500', 'GHS 8,000'] },
+      { name: 'E-commerce', detail: 'Online store with MoMo / card payments', prices: ['GHS 5,000', 'GHS 7,000', 'GHS 15,000'] },
+      { name: 'Custom / Corporate', detail: 'Booking systems, portals, dashboards', prices: ['Quote', 'GHS 10,000', 'GHS 20,000'] },
+    ],
+    extras: [
+      {
+        title: 'Add-ons',
+        items: [
+          ['Domain & hosting', 'from GHS 800/yr'],
+          ['Extra page', 'from GHS 300'],
+          ['Logo design', 'from GHS 300'],
+        ],
+      },
+      {
+        title: 'Keep it running',
+        items: [
+          ['Monthly maintenance', 'from GHS 300/mo'],
+          ['Business email setup', 'from GHS 200'],
+          ['SEO & Google listing', 'from GHS 500'],
+        ],
+      },
+    ],
+    terms: ['50% deposit to start', '2–3 revisions included', 'Mobile-friendly on all plans'],
+  },
+  motion: {
+    label: 'Motion graphics',
+    service: 'Motion Graphics',
+    packages: [
+      { name: 'Animated Flyer', detail: 'Animated poster for status & socials', prices: ['GHS 150', 'GHS 250', 'GHS 600'] },
+      { name: 'Logo Animation', detail: '5–10 second logo reveal', prices: ['GHS 300', 'GHS 500', 'GHS 1,500'] },
+      { name: 'Social Reel / Promo', detail: '15–30 second promo video', prices: ['GHS 400', 'GHS 700', 'GHS 2,000'] },
+      { name: 'Event Promo', detail: 'Birthdays, weddings, events (30–60s)', prices: ['GHS 500', 'GHS 1,000', 'GHS 2,500'] },
+      { name: 'Explainer / Advert', detail: '60–90 second explainer or advert', prices: ['GHS 1,500', 'GHS 3,000', 'GHS 6,000'] },
+      { name: 'Intro / Outro', detail: 'YouTube, church & brand media', prices: ['GHS 300', 'GHS 500', 'GHS 1,500'] },
+    ],
+    extras: [
+      {
+        title: 'Monthly packages',
+        items: [
+          ['Basic · 4 animated posts', 'GHS 800/mo'],
+          ['Growth · 8 posts + 2 reels', 'GHS 2,000/mo'],
+          ['Premium · 12 posts + 4 reels', 'GHS 5,000/mo'],
+        ],
+      },
+      {
+        title: 'Extras',
+        items: [
+          ['Rush delivery (24–48hrs)', '+30%'],
+          ['Voice-over', 'from GHS 200'],
+          ['Extra revision', 'from GHS 100'],
+        ],
+      },
+    ],
+    terms: ['50% deposit to start', '2 revisions included', 'HD files delivered'],
+  },
+} as const;
+
+export type PricingKey = keyof typeof PRICING;

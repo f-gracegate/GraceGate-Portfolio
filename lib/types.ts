@@ -42,6 +42,8 @@ export interface DesignItem {
   src: string;
   /** Optional MP4 for motion work */
   video?: string;
+  /** True when the video has a soundtrack */
+  hasAudio?: boolean;
   width: number;
   height: number;
   /** Logos sit on a light canvas; flyers fill their frame. */
@@ -70,6 +72,7 @@ export interface PortfolioItem {
   /** Image, or poster frame when `video` is set */
   src: string;
   video?: string;
+  hasAudio?: boolean;
   width: number;
   height: number;
   /** 'contain' places the artwork on a light canvas (logos) */

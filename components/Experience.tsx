@@ -11,7 +11,7 @@ export default function Experience() {
       <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       <div className="container-x">
         <SectionHeading
-          index="06" eyebrow="Experience"
+          index="07" eyebrow="Experience"
           title="Experience and credentials."
           highlight={['credentials.']}
           description="Freelance design and development, security work in national service, and enterprise networking at KNUST."
