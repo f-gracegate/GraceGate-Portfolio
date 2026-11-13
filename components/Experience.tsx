@@ -12,8 +12,8 @@ export default function Experience() {
       <div className="container-x">
         <SectionHeading
           index="06" eyebrow="Experience"
-          title="Where design craft meets engineering depth."
-          highlight={['engineering']}
+          title="Experience and credentials."
+          highlight={['credentials.']}
           description="Freelance design and development, security work in national service, and enterprise networking at KNUST."
         />
 

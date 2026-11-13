@@ -271,7 +271,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
 export const PORTFOLIO_DATA: ProjectItem[] = [
   {
     id: 'w1',
-    title: 'GraceGate Store — E-commerce Website',
+    title: 'GraceGate Store e-commerce website',
     client: 'GraceGate Store',
     category: 'Websites & Apps',
     tag: 'E-commerce · In progress',
@@ -290,7 +290,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
     tag: 'Website',
     description: 'This site: a Next.js portfolio with scroll-driven 3D animation, a filterable portfolio, motion work and a secure project request form.',
     technologies: ['Next.js', 'React', 'Tailwind CSS', 'Motion'],
-    src: '/projects/gracegate-portfolio-site-v2.webp',
+    src: '/projects/gracegate-portfolio-site-v3.webp',
     width: 1440,
     height: 900,
     fit: 'cover',
@@ -352,7 +352,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
 export const DESIGN_DATA: DesignItem[] = [
   {
     id: 'd1',
-    title: 'Good Food, Good Vibes — Campaign Flyer',
+    title: 'Good Food, Good Vibes campaign flyer',
     client: 'Chez Amis Bar & Grill',
     type: 'Flyer',
     description: 'Promotional flyer featuring the brand ambassadors, opening hours, ordering lines and location, built around a bold diamond photo grid in the brand’s green and red.',
@@ -363,7 +363,7 @@ export const DESIGN_DATA: DesignItem[] = [
   },
   {
     id: 'd2',
-    title: 'Bite Into Happiness — Menu Flyer',
+    title: 'Bite Into Happiness menu flyer',
     client: 'Chez Amis Bar & Grill',
     type: 'Flyer',
     description: 'Menu-led variation of the campaign highlighting burgers, shawarma, hotdogs and sandwiches with food photography and clear calls to order.',
@@ -374,7 +374,7 @@ export const DESIGN_DATA: DesignItem[] = [
   },
   {
     id: 'd8',
-    title: 'FOMC News Live Trading — Event Flyer',
+    title: 'FOMC News Live Trading flyer',
     client: 'Roadmoney Forex Academy',
     type: 'Flyer',
     description: 'Social flyer announcing a live FOMC-news trading stream on TikTok: bold headline, learning outcomes, date and time across ET, GMT and WAT, and a rising candlestick chart in the academy’s black and gold.',
@@ -385,7 +385,7 @@ export const DESIGN_DATA: DesignItem[] = [
   },
   {
     id: 'd7',
-    title: 'Websites & Motion Graphics — Studio Promo',
+    title: 'Websites & Motion Graphics promo',
     client: 'GraceGate Technologies',
     type: 'Flyer',
     description: 'Promotional flyer for GraceGate Technologies’ website and motion graphics services, with service cards, an illustrated browser and video mock-up, and contact details.',

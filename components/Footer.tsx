@@ -130,18 +130,6 @@ export default function Footer() {
         <p>{CONTACT.location}</p>
       </div>
 
-      {/* Giant wordmark */}
-      <div aria-hidden className="pointer-events-none select-none overflow-hidden">
-        <motion.p
-          initial={{ y: '40%', opacity: 0 }}
-          whileInView={{ y: '0%', opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-          className="-mb-[0.22em] bg-gradient-to-b from-brand-500/25 via-brand-700/10 to-transparent bg-clip-text text-center font-display text-[19vw] font-bold leading-none tracking-[-0.06em] text-transparent"
-        >
-          GraceGate
-        </motion.p>
-      </div>
     </footer>
   );
 }

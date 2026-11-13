@@ -1,8 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import { motion, useScroll, useTransform } from 'motion/react';
-import { useRef } from 'react';
 import { GraduationCap, ShieldCheck, MapPin } from 'lucide-react';
 import { CONTACT, PORTFOLIO_ITEMS, PROFILE, STATS } from '@/lib/data';
 import { Counter, Reveal, SectionHeading, SpotlightCard } from './ui/motion';
@@ -14,13 +12,10 @@ const FACTS = [
 ];
 
 export default function About() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
-  const rotate = useTransform(scrollYProgress, [0, 1], [-20, 20]);
 
   return (
     <section id="about" className="relative scroll-mt-24 py-28 sm:py-36">
-      <div ref={ref} className="container-x grid gap-16 lg:grid-cols-2 lg:items-center">
+      <div className="container-x grid gap-16 lg:grid-cols-2 lg:items-center">
         <div>
           <SectionHeading
             align="left"
@@ -47,11 +42,6 @@ export default function About() {
         </div>
 
         <div className="relative">
-          <motion.div
-            aria-hidden
-            style={{ rotate }}
-            className="absolute -inset-10 -z-10 rounded-full bg-[conic-gradient(from_90deg,transparent,rgba(139,44,245,0.25),transparent_40%)] blur-3xl"
-          />
           <div className="grid grid-cols-2 gap-4">
             {STATS.map((s) => (s.label === 'Portfolio pieces' ? { ...s, value: PORTFOLIO_ITEMS.length } : s)).map((s, i) => (
               <Reveal key={s.label} delay={i * 0.1}>
@@ -67,7 +57,7 @@ export default function About() {
             ))}
           </div>
           <Reveal delay={0.4}>
-            <div className="border-spin mt-4 flex items-center justify-between gap-4 rounded-3xl bg-ink-900/80 p-5 sm:p-6">
+            <div className="mt-4 flex items-center justify-between gap-4 rounded-3xl border border-white/[0.07] bg-ink-900/70 p-5 sm:p-6">
               <div>
                 <p className="text-xs text-white/45">Powered by</p>
                 <p className="mt-1 font-display text-lg font-semibold text-white">GraceGate Technologies</p>

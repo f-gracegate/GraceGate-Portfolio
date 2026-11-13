@@ -144,7 +144,7 @@ export default function DeckShowcase() {
           style={{ opacity: introOpacity }}
           className="absolute inset-x-0 top-[14%] z-10 text-center text-sm text-white/45"
         >
-          Scroll to open the gate
+          A few things I&apos;ve made
         </motion.p>
 
         {/* 3D stage */}
@@ -170,8 +170,8 @@ export default function DeckShowcase() {
             Security, software <span className="text-shimmer">&amp; design.</span>
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-white/55 sm:text-base">
-            One studio for the whole lifecycle — testing what you have, building what you need and designing how it
-            looks to the world.
+            One studio for the whole job: designing how it looks, building what you need and testing that it&apos;s
+            secure.
           </p>
           <a
             href="#work"

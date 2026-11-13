@@ -6,7 +6,6 @@ import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'motion/
 import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { NAV_LINKS } from '@/lib/data';
 import { useContact } from './Providers';
-import { Magnetic } from './ui/motion';
 
 export default function Navbar() {
   const { openContact } = useContact();
@@ -84,16 +83,13 @@ export default function Navbar() {
           </ul>
 
           <div className="flex items-center gap-2">
-            <Magnetic className="hidden sm:inline-block">
               <button
                 onClick={() => openContact()}
-                className="group relative inline-flex items-center gap-1.5 overflow-hidden rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-ink-950 transition-shadow hover:shadow-[0_0_30px_-4px_rgba(169,112,255,0.8)]"
+                className="group hidden items-center gap-1.5 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-ink-950 transition-colors hover:bg-white/90 sm:inline-flex"
               >
-                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-brand-300 via-white to-brand-300 transition-transform duration-700 group-hover:translate-x-full" />
-                <span className="relative">Hire me</span>
+                <span>Hire me</span>
                 <ArrowUpRight size={16} className="relative transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </button>
-            </Magnetic>
             <button
               onClick={() => setMobileOpen((v) => !v)}
               className="grid h-10 w-10 place-items-center rounded-full border border-white/10 text-white md:hidden"

@@ -17,9 +17,9 @@ type Featured = {
 };
 
 const FEATURED: Featured[] = [
-  { src: '/designs/chez-amis-flyer-celebrity.webp', title: 'Chez Amis — Campaign Flyer', tag: 'Flyer Design', width: 1414, height: 2000, plane: '#1f8f3f' },
+  { src: '/designs/chez-amis-flyer-celebrity.webp', title: 'Chez Amis campaign flyer', tag: 'Flyer Design', width: 1414, height: 2000, plane: '#1f8f3f' },
   { src: '/designs/mtcrestmark-brand-sheet.webp', title: 'MTCrestmark Brand Identity', tag: 'Brand Identity', width: 1672, height: 692, plane: '#0f5a35', fit: 'contain' },
-  { src: '/projects/gracegate-portfolio-site-v2.webp', title: 'GraceGate Portfolio Website', tag: 'Websites & Apps', width: 1440, height: 900, plane: '#7414e0' },
+  { src: '/projects/gracegate-portfolio-site-v3.webp', title: 'GraceGate Portfolio Website', tag: 'Websites & Apps', width: 1440, height: 900, plane: '#7414e0' },
 ];
 
 function TiltItem({ item, i }: { item: Featured; i: number }) {
@@ -77,9 +77,9 @@ export default function TiltWorkList() {
       <div className="container-x">
         <SectionHeading
           index="04" eyebrow="Featured"
-          title="Highlights from recent work."
+          title="Recent highlights."
           highlight={['Highlights']}
-          description="Three pieces across design, branding and product — the full portfolio follows below."
+          description="Three recent pieces. The full portfolio is just below."
         />
       </div>
       <div className="mt-4">

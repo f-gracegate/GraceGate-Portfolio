@@ -17,9 +17,9 @@ export default function Services() {
       <div className="container-x">
         <SectionHeading
           index="03" eyebrow="Services"
-          title="Everything your idea needs, from first sketch to secure launch."
-          highlight={['launch.']}
-          description="Six services, one point of contact: design, development, motion and security, delivered with fast turnaround."
+          title="What I can do for you."
+          highlight={['you.']}
+          description="Six services, one person to talk to: design, development, motion and security."
         />
 
         <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -38,9 +38,9 @@ export default function Services() {
                     <div className="flex items-start justify-between">
                       <motion.span
                         whileHover={{ rotate: 8, scale: 1.08 }}
-                        className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-brand-500 to-brand-800 text-white shadow-[0_8px_30px_-6px_rgba(139,44,245,0.7)]"
+                        className="text-brand-400"
                       >
-                        <Icon size={21} />
+                        <Icon size={26} strokeWidth={1.6} />
                       </motion.span>
                       <span className="font-mono text-xs text-white/25">0{i + 1}</span>
                     </div>

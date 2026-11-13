@@ -284,9 +284,9 @@ export default function Work() {
       <div className="container-x">
         <SectionHeading
           index="05" eyebrow="Portfolio"
-          title="Selected work across design, development and security."
-          highlight={['security.']}
-          description="Flyers, brand identities, websites, motion graphics and security engagements. Filter by discipline and open any piece to view it in full."
+          title="Selected work."
+          highlight={['work.']}
+          description="Flyers, logos, websites, motion graphics and security work. Pick a category or open any piece to see it full size."
         />
 
         <LayoutGroup>
