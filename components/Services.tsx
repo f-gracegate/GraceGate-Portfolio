@@ -16,9 +16,9 @@ export default function Services() {
       <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       <div className="container-x">
         <SectionHeading
-          eyebrow="Services"
+          index="03" eyebrow="Services"
           title="Everything your idea needs, from first sketch to secure launch."
-          highlight={['secure', 'launch.']}
+          highlight={['launch.']}
           description="Six services, one point of contact: design, development, motion and security, delivered with fast turnaround."
         />
 

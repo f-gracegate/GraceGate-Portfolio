@@ -45,7 +45,7 @@ export default function Footer() {
         </div>
 
         <div className="lg:col-span-2">
-          <h4 className="font-mono text-[11px] uppercase tracking-[0.22em] text-white/35">Navigate</h4>
+          <h4 className="text-sm font-medium text-white/85">Navigate</h4>
           <ul className="mt-5 space-y-3 text-sm">
             {NAV_LINKS.map((l) => (
               <li key={l.id}>
@@ -58,7 +58,7 @@ export default function Footer() {
         </div>
 
         <div className="lg:col-span-3">
-          <h4 className="font-mono text-[11px] uppercase tracking-[0.22em] text-white/35">Services</h4>
+          <h4 className="text-sm font-medium text-white/85">Services</h4>
           <ul className="mt-5 space-y-3 text-sm">
             {SERVICES_DATA.map((s) => (
               <li key={s.id}>
@@ -71,7 +71,7 @@ export default function Footer() {
         </div>
 
         <div className="lg:col-span-2">
-          <h4 className="font-mono text-[11px] uppercase tracking-[0.22em] text-white/35">Contact</h4>
+          <h4 className="text-sm font-medium text-white/85">Contact</h4>
           <ul className="mt-5 space-y-3 text-sm">
             <li>
               <a href={`mailto:${CONTACT.email}`} className="flex items-start gap-2 break-all text-white/60 transition-colors hover:text-white">
@@ -111,7 +111,7 @@ export default function Footer() {
               className="h-16 w-auto"
             />
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-white/40">Powered by</p>
+              <p className="text-xs text-white/45">Powered by</p>
               <p className="mt-1 font-display text-lg font-semibold text-white">GraceGate Technologies</p>
             </div>
           </div>

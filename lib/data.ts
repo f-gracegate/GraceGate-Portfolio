@@ -290,7 +290,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
     tag: 'Website',
     description: 'This site: a Next.js portfolio with scroll-driven 3D animation, a filterable portfolio, motion work and a secure project request form.',
     technologies: ['Next.js', 'React', 'Tailwind CSS', 'Motion'],
-    src: '/projects/gracegate-portfolio-site.webp',
+    src: '/projects/gracegate-portfolio-site-v2.webp',
     width: 1440,
     height: 900,
     fit: 'cover',

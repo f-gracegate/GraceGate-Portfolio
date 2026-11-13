@@ -14,9 +14,9 @@ export default function WhyChoose() {
       <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       <div className="container-x">
         <SectionHeading
-          eyebrow="Why GraceGate"
+          index="08" eyebrow="Why GraceGate"
           title="The depth of a specialist, the range of a builder."
-          highlight={['specialist,', 'builder.']}
+          highlight={['builder.']}
         />
         <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {WHY_CHOOSE_DATA.map((w, i) => {

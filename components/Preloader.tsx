@@ -47,10 +47,10 @@ export default function Preloader() {
             />
           </div>
           <motion.p
-            initial={{ opacity: 0, letterSpacing: '0.2em' }}
-            animate={{ opacity: 1, letterSpacing: '0.45em' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 1.2, delay: 0.2 }}
-            className="relative mt-5 font-mono text-[10px] uppercase text-white/50"
+            className="relative mt-5 text-sm text-white/50"
           >
             Securing the gate
           </motion.p>

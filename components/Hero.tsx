@@ -90,13 +90,10 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: d, duration: 0.7, ease: EASE }}
           >
-            <span className="eyebrow">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-              </span>
+            <p className="flex items-center gap-2.5 text-sm text-white/60">
+              <span className="h-2 w-2 rounded-full bg-emerald-400" />
               Available for new projects
-            </span>
+            </p>
           </motion.div>
 
           <h1 className="mt-7 font-display text-[2.6rem] font-semibold leading-[1.02] tracking-[-0.035em] text-white sm:text-6xl lg:text-[4.6rem]">
@@ -163,7 +160,7 @@ export default function Hero() {
                 className="px-4 py-4 first:pl-0"
               >
                 <dt className="font-display text-xl font-semibold text-white sm:text-2xl">{m.value}</dt>
-                <dd className="mt-1 text-[10px] uppercase leading-snug tracking-[0.14em] text-white/40">{m.label}</dd>
+                <dd className="mt-1 text-xs leading-snug text-white/45">{m.label}</dd>
               </motion.div>
             ))}
           </motion.dl>
@@ -241,7 +238,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: d + 1.4 }}
-        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-white/35 lg:flex"
+        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-xs text-white/40 lg:flex"
         aria-label="Scroll down"
       >
         Scroll

@@ -19,7 +19,7 @@ type Featured = {
 const FEATURED: Featured[] = [
   { src: '/designs/chez-amis-flyer-celebrity.webp', title: 'Chez Amis — Campaign Flyer', tag: 'Flyer Design', width: 1414, height: 2000, plane: '#1f8f3f' },
   { src: '/designs/mtcrestmark-brand-sheet.webp', title: 'MTCrestmark Brand Identity', tag: 'Brand Identity', width: 1672, height: 692, plane: '#0f5a35', fit: 'contain' },
-  { src: '/projects/gracegate-portfolio-site.webp', title: 'GraceGate Portfolio Website', tag: 'Websites & Apps', width: 1440, height: 900, plane: '#7414e0' },
+  { src: '/projects/gracegate-portfolio-site-v2.webp', title: 'GraceGate Portfolio Website', tag: 'Websites & Apps', width: 1440, height: 900, plane: '#7414e0' },
 ];
 
 function TiltItem({ item, i }: { item: Featured; i: number }) {
@@ -63,7 +63,7 @@ function TiltItem({ item, i }: { item: Featured; i: number }) {
       </motion.div>
 
       <motion.div style={{ opacity: captionOpacity, x: captionX }} className="mt-10 text-center">
-        <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-brand-300">{item.tag}</p>
+        <p className="text-sm font-medium text-brand-300">{item.tag}</p>
         <p className="mt-2 font-display text-lg font-semibold text-white sm:text-xl">{item.title}</p>
       </motion.div>
     </div>
@@ -76,7 +76,7 @@ export default function TiltWorkList() {
       <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       <div className="container-x">
         <SectionHeading
-          eyebrow="Featured"
+          index="04" eyebrow="Featured"
           title="Highlights from recent work."
           highlight={['Highlights']}
           description="Three pieces across design, branding and product — the full portfolio follows below."

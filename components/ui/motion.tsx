@@ -71,12 +71,15 @@ export function WordReveal({
 /** Section heading block shared by every section. */
 export function SectionHeading({
   eyebrow,
+  index,
   title,
   highlight,
   description,
   align = 'center',
 }: {
   eyebrow: string;
+  /** Section number shown before the label, e.g. "03" */
+  index?: string;
   title: string;
   highlight?: string[];
   description?: string;
@@ -86,10 +89,11 @@ export function SectionHeading({
   return (
     <div className={`flex flex-col gap-5 ${center ? 'items-center text-center' : 'items-start text-left'}`}>
       <Reveal y={12}>
-        <span className="eyebrow">
-          <span className="h-1.5 w-1.5 rounded-full bg-brand-400 shadow-[0_0_10px_#a970ff]" />
-          {eyebrow}
-        </span>
+        <p className="flex items-center gap-3 text-sm text-white/55">
+          {index && <span className="font-display font-semibold text-brand-400">{index}</span>}
+          <span aria-hidden className="h-px w-8 bg-white/25" />
+          <span>{eyebrow}</span>
+        </p>
       </Reveal>
       <h2
         className={`font-display text-3xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl ${center ? 'max-w-3xl' : 'max-w-2xl'}`}

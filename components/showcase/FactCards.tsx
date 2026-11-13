@@ -206,7 +206,7 @@ export default function FactCards() {
   return (
     <section aria-label="About GraceGate in three cards" className="relative py-20 sm:py-28">
       <div className="container-x">
-        <SectionHeading align="left" eyebrow="Beyond the code" title="How I think about the work." highlight={['think']} />
+        <SectionHeading align="left" index="02" eyebrow="Beyond the code" title="How I think about the work." highlight={['think']} />
         <div className="mt-12 grid gap-5 md:grid-cols-3">
           {cards.map((C, i) => (
             <motion.div

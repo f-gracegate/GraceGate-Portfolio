@@ -148,7 +148,7 @@ export default function ServiceRequestModal({ isOpen, onClose, preselectedServic
                   className="relative space-y-6"
                 >
                   <div>
-                    <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-brand-300">Start a project</p>
+                    <p className="text-sm font-medium text-brand-300">Start a project</p>
                     <h3 id="request-title" className="mt-2 font-display text-2xl font-semibold text-white sm:text-3xl">
                       Tell me about your project
                     </h3>

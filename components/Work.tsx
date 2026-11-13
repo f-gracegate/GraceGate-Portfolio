@@ -89,7 +89,7 @@ function Card({ item, index, onOpen }: { item: PortfolioItem; index: number; onO
 
         <div className="flex flex-1 flex-col p-5 sm:p-6">
           <div className="flex items-center justify-between gap-3">
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-brand-300">{item.tag}</span>
+            <span className="text-xs font-medium text-brand-300">{item.tag}</span>
             <span className="truncate text-[11px] text-white/35">{item.client}</span>
           </div>
           <h3 className="mt-2 font-display text-lg font-semibold leading-snug text-white">{item.title}</h3>
@@ -232,7 +232,7 @@ function Lightbox({
           className="relative z-10 mx-auto flex w-full max-w-4xl flex-col gap-4 px-5 py-5 sm:flex-row sm:items-end sm:justify-between sm:px-8 sm:py-7"
         >
           <div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-brand-300">
+            <p className="text-sm font-medium text-brand-300">
               {item.tag} · {item.client}
             </p>
             <h3 className="mt-1.5 font-display text-xl font-semibold text-white sm:text-2xl">{item.title}</h3>
@@ -283,9 +283,9 @@ export default function Work() {
       <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       <div className="container-x">
         <SectionHeading
-          eyebrow="Portfolio"
+          index="05" eyebrow="Portfolio"
           title="Selected work across design, development and security."
-          highlight={['design,', 'development', 'security.']}
+          highlight={['security.']}
           description="Flyers, brand identities, websites, motion graphics and security engagements. Filter by discipline and open any piece to view it in full."
         />
 

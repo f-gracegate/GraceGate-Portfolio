@@ -142,7 +142,7 @@ export default function DeckShowcase() {
         {/* Intro caption */}
         <motion.p
           style={{ opacity: introOpacity }}
-          className="absolute inset-x-0 top-[14%] z-10 text-center font-mono text-[11px] uppercase tracking-[0.35em] text-white/40"
+          className="absolute inset-x-0 top-[14%] z-10 text-center text-sm text-white/45"
         >
           Scroll to open the gate
         </motion.p>

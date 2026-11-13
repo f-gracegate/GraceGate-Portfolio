@@ -24,7 +24,7 @@ export default function About() {
         <div>
           <SectionHeading
             align="left"
-            eyebrow="About"
+            index="01" eyebrow="About"
             title="I design it, build it, animate it and secure it."
             highlight={['secure']}
             description="I'm Francis Amoako, the designer, developer and ethical hacker behind GraceGate. I create user-centred UI/UX, brand visuals, flyers and motion graphics that grab attention, then ship them as responsive websites and mobile apps that are not just good-looking, but robust and safe."
@@ -69,7 +69,7 @@ export default function About() {
           <Reveal delay={0.4}>
             <div className="border-spin mt-4 flex items-center justify-between gap-4 rounded-3xl bg-ink-900/80 p-5 sm:p-6">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-white/40">Powered by</p>
+                <p className="text-xs text-white/45">Powered by</p>
                 <p className="mt-1 font-display text-lg font-semibold text-white">GraceGate Technologies</p>
               </div>
               <Image

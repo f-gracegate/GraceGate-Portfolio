@@ -13,7 +13,7 @@ export default function ToolMarquee() {
               className="flex items-center gap-14 whitespace-nowrap font-display text-lg font-medium tracking-tight text-white/35 transition-colors hover:text-white sm:text-xl"
             >
               {b}
-              <span className="text-brand-500/60">✦</span>
+              <span className="h-1 w-1 rounded-full bg-white/20" />
             </span>
           ))}
         </div>

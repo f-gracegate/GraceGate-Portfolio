@@ -29,9 +29,9 @@ export default function CTA() {
           />
           <div aria-hidden className="grid-bg absolute inset-0 -z-10 opacity-60 [mask-image:radial-gradient(ellipse_at_center,#000,transparent_70%)]" />
 
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-brand-300">Let&apos;s work together</p>
+          <p className="text-sm font-medium text-brand-300">Let&apos;s work together</p>
           <h2 className="mx-auto mt-6 max-w-3xl font-display text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-6xl">
-            <WordReveal text="Have a system to secure or a product to build?" highlight={['secure', 'build?']} />
+            <WordReveal text="Have a system to secure or a product to build?" highlight={['build?']} />
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-white/55 sm:text-lg">
             Tell me what you&apos;re working on. You&apos;ll get a clear plan, honest timelines and a fast reply.
