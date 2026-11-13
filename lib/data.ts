@@ -1,4 +1,14 @@
-import { ServiceItem, MetricItem, TestimonialItem, WhyChooseItem, ProjectItem, DesignItem } from './types';
+import {
+  PORTFOLIO_CATEGORIES,
+  type ServiceItem,
+  type MetricItem,
+  type TestimonialItem,
+  type WhyChooseItem,
+  type ProjectItem,
+  type DesignItem,
+  type PortfolioCategory,
+  type PortfolioItem,
+} from './types';
 
 export const CONTACT = {
   email: 'gracefrancis0895@gmail.com',
@@ -11,7 +21,6 @@ export const NAV_LINKS = [
   { id: 'about', label: 'About' },
   { id: 'services', label: 'Services' },
   { id: 'work', label: 'Work' },
-  { id: 'designs', label: 'Designs' },
   { id: 'process', label: 'Process' },
   { id: 'testimonials', label: 'Reviews' },
 ];
@@ -366,3 +375,68 @@ export const DESIGN_DATA: DesignItem[] = [
     fit: 'cover',
   },
 ];
+
+/* ------------------------------------------------------------------ */
+/* Unified portfolio: design work + projects under one set of categories */
+
+const DESIGN_META: Record<string, { category: PortfolioCategory; tag: string }> = {
+  d1: { category: 'Flyers', tag: 'Campaign Flyer' },
+  d2: { category: 'Flyers', tag: 'Menu Flyer' },
+  d3: { category: 'Logos & Branding', tag: 'Logo Design' },
+  d4: { category: 'Logos & Branding', tag: 'Logo Design' },
+  d5: { category: 'Logos & Branding', tag: 'Brand Identity' },
+  d6: { category: 'Motion Graphics', tag: 'Logo Animation' },
+};
+
+const PROJECT_META: Record<string, { category: PortfolioCategory; tag: string; src: string }> = {
+  p1: { category: 'Cybersecurity', tag: 'Defensive Security', src: '/projects/defensive-security.png' },
+  p2: { category: 'Cybersecurity', tag: 'Offensive Security', src: '/projects/offensive-security.png' },
+  p3: { category: 'Cybersecurity', tag: 'Offensive Security', src: '/projects/offensive-security.png' },
+  p4: { category: 'Cybersecurity', tag: 'Infrastructure Security', src: '/projects/infra-security.png' },
+  p5: { category: 'Cybersecurity', tag: 'Cloud Security', src: '/projects/infra-security.png' },
+  p6: { category: 'Cybersecurity', tag: 'Infrastructure Security', src: '/projects/infra-security.png' },
+  p7: { category: 'Websites & Apps', tag: 'Mobile App', src: '/projects/web-mobile-apps.png' },
+  p8: { category: 'Websites & Apps', tag: 'Web Platform', src: '/projects/web-mobile-apps.png' },
+  p9: { category: 'Flyers', tag: 'Event Flyer', src: '/projects/ux-ui-flyers.png' },
+  p10: { category: 'Websites & Apps', tag: 'UI/UX Design', src: '/projects/ux-ui-flyers.png' },
+};
+
+const ALL_ITEMS: PortfolioItem[] = [
+  ...DESIGN_DATA.map((d) => ({
+    id: d.id,
+    title: d.title,
+    client: d.client,
+    description: d.description,
+    src: d.src,
+    video: d.video,
+    width: d.width,
+    height: d.height,
+    fit: d.fit,
+    ...DESIGN_META[d.id],
+  })),
+  ...PORTFOLIO_DATA.map((p) => ({
+    id: p.id,
+    title: p.title,
+    client: p.client,
+    description: p.description,
+    technologies: p.technologies,
+    width: 1200,
+    height: 896,
+    fit: 'cover' as const,
+    ...PROJECT_META[p.id],
+  })),
+];
+
+/** Sorted in category order: Flyers, Logos & Branding, Websites & Apps, Motion Graphics, Cybersecurity. */
+export const PORTFOLIO_ITEMS: PortfolioItem[] = PORTFOLIO_CATEGORIES.flatMap((c) =>
+  ALL_ITEMS.filter((i) => i.category === c),
+);
+
+/** Which request-form service each category maps to. */
+export const CATEGORY_SERVICE: Record<PortfolioCategory, string> = {
+  Flyers: 'UI/UX & Graphic Design (Flyers)',
+  'Logos & Branding': 'UI/UX & Graphic Design (Flyers)',
+  'Websites & Apps': 'Web & Mobile App Creation',
+  'Motion Graphics': 'UI/UX & Graphic Design (Flyers)',
+  Cybersecurity: 'Penetration Testing & Ethical Hacking',
+};

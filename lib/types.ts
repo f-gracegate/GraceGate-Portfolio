@@ -59,3 +59,32 @@ export interface DesignItem {
   /** Logos sit on a light canvas; flyers fill their frame. */
   fit: 'cover' | 'contain';
 }
+
+export const PORTFOLIO_CATEGORIES = [
+  'Flyers',
+  'Logos & Branding',
+  'Websites & Apps',
+  'Motion Graphics',
+  'Cybersecurity',
+] as const;
+
+export type PortfolioCategory = (typeof PORTFOLIO_CATEGORIES)[number];
+
+/** Unified entry shown in the portfolio grid and lightbox. */
+export interface PortfolioItem {
+  id: string;
+  title: string;
+  client: string;
+  category: PortfolioCategory;
+  /** Finer-grained label shown on the card, e.g. "Menu Flyer" */
+  tag: string;
+  description: string;
+  /** Image, or poster frame when `video` is set */
+  src: string;
+  video?: string;
+  width: number;
+  height: number;
+  /** 'contain' places the artwork on a light canvas (logos) */
+  fit: 'cover' | 'contain';
+  technologies?: string[];
+}
